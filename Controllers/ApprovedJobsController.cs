@@ -6,14 +6,14 @@ namespace All4SA.Controllers
     [Route("ApprovedJobs")]
     public class ApprovedJobsController : Controller
     {
-        [HttpGet(Name = "GetAllApprovedJobss")]
-        public IActionResult GetAllApprovedJobss()
+        [HttpGet(Name = "GetAllApprovedJobs")]
+        public IActionResult GetAllApprovedJobs()
         {
             return new ObjectResult("");
         }
 
-        [HttpGet("GetApprovedJobByID/{jobID}", Name = "GetApprovedJobsByID")]
-        public IActionResult GetApprovedJobsByID(int jobID)
+        [HttpGet("GetApprovedJobByID/{jobID}", Name = "GetApprovedJobByID")]
+        public IActionResult GetApprovedJobByID(int jobID)
         {
             return new ObjectResult("");
         }
@@ -36,7 +36,7 @@ namespace All4SA.Controllers
             return new ObjectResult("");
         }
 
-        [HttpDelete("DeleteApprovedJob/{jobID}", Name = "ApprovedJob")]
+        [HttpDelete("DeleteApprovedJob/{jobID}", Name = "DeleteApprovedJob")]
         public IActionResult DeleteApprovedJob(int jobID)
         {
             return new ObjectResult("");
