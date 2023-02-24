@@ -7,7 +7,37 @@ namespace All4SA.Controllers
     public class StatusesController : Controller
     {
         [HttpGet(Name = "GetAllStatuses")]
-        public IActionResult Index()
+        public IActionResult GetAllStatuses()
+        {
+            return new ObjectResult("");
+        }
+
+        [HttpGet("GetStatusByID/{statusID}", Name = "GetStatusByID")]
+        public IActionResult GetStatusByID(int statusID)
+        {
+            return new ObjectResult("");
+        }
+
+        [HttpPost("AddStatus", Name = "AddStatus")]
+        public IActionResult AddStatus(string statusName)
+        {
+            return new ObjectResult("");
+        }
+
+        [HttpPut("UpdateStatus/{statusID}", Name = "UpdateStatus")]
+        public IActionResult UpdateStatus(int statusID, string statusName)
+        {
+            return new ObjectResult("");
+        }
+
+        [HttpPut("SoftDeleteStatus/{statusID}", Name = "SoftDeleteStatus")]
+        public IActionResult SoftDeleteStatus(int statusID)
+        {
+            return new ObjectResult("");
+        }
+
+        [HttpDelete("DeleteStatus/{statusID}", Name = "DeleteStatus")]
+        public IActionResult DeleteStatus(int statusID)
         {
             return new ObjectResult("");
         }
