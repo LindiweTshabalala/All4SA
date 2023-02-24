@@ -5,16 +5,37 @@ namespace All4SA.Models
 {
     public class Address : DatabaseActionsBridge
     {
-        public static Address GetByID(int ID)
+        public static new Address GetByID(int ID)
         {
-            return 
-        };
-        public static object GetAll() => new();
-        public static DatabaseActionsResponses InsertEntry(object newEntry) => DatabaseActionsResponses.Failed;
+            return new Address();
+        }
 
-        public static DatabaseActionsResponses UpdateEntryByID(int ID, object updateEntry) => DatabaseActionsResponses.Failed;
-        public static DatabaseActionsResponses DeleteEntryByID(int ID) => DatabaseActionsResponses.Failed;
-        public static DatabaseActionsResponses DeleteAll() => DatabaseActionsResponses.Failed;
-        public static DatabaseActionsResponses SoftDeleteEntryByID(int ID) => DatabaseActionsResponses.Failed;
+        public static new List<Address> GetAll()
+        {
+            return new List<Address>();
+        }
+
+        public static DatabaseActionsResponses InsertEntry(Address newEntry)
+        {
+            return DatabaseActionsResponses.Failed;
+        }
+
+        public static DatabaseActionsResponses UpdateEntryByID(int ID, Address updateEntry)
+        {
+            return DatabaseActionsResponses.Failed;
+        }
+
+        public static new DatabaseActionsResponses DeleteEntryByID(int ID)
+        {
+            return DatabaseActionsResponses.Failed;
+        }
+        public static new DatabaseActionsResponses DeleteAll()
+        {
+            return DatabaseActionsResponses.Failed;
+        }
+        public static new DatabaseActionsResponses SoftDeleteEntryByID(int ID)
+        {
+            return DatabaseActionsResponses.Failed;
+        }
     }
 }
