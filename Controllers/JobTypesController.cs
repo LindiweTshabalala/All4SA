@@ -2,11 +2,14 @@
 
 namespace All4SA.Controllers
 {
+    [ApiController]
+    [Route("JobTypes")]
     public class JobTypesController : Controller
     {
-        public IActionResult Index()
+        [HttpGet(Name = "GetAllJobTypes")]
+        public IActionResult GetAllJobTypes()
         {
-            return View();
+            return new ObjectResult("");
         }
     }
 }

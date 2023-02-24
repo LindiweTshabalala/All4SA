@@ -2,11 +2,14 @@
 
 namespace All4SA.Controllers
 {
+    [ApiController]
+    [Route("Donations")]
     public class DonationsController : Controller
     {
-        public IActionResult Index()
+        [HttpGet(Name = "GetAllDonations")]
+        public IActionResult GetAllDonations()
         {
-            return View();
+            return new ObjectResult("");
         }
     }
 }

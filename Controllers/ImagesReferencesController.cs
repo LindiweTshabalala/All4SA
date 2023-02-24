@@ -2,11 +2,14 @@
 
 namespace All4SA.Controllers
 {
+    [ApiController]
+    [Route("ImagesReferences")]
     public class ImagesReferencesController : Controller
     {
+        [HttpGet(Name = "GetAllImagesReferences")]
         public IActionResult Index()
         {
-            return View();
+            return new ObjectResult("");
         }
     }
 }

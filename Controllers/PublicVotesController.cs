@@ -2,11 +2,14 @@
 
 namespace All4SA.Controllers
 {
+    [ApiController]
+    [Route("PublicVotes")]
     public class PublicVotesController : Controller
     {
-        public IActionResult Index()
+        [HttpGet(Name = "GetAllPublicVotes")]
+        public IActionResult GetAllPublicVotes()
         {
-            return View();
+            return new ObjectResult("");
         }
     }
 }

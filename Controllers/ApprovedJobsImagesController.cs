@@ -2,11 +2,14 @@
 
 namespace All4SA.Controllers
 {
+    [ApiController]
+    [Route("ApprovedJobsImages")]
     public class ApprovedJobsImagesController : Controller
     {
-        public IActionResult Index()
+        [HttpGet(Name = "GetAllApprovedJobsImages")]
+        public IActionResult GetAllApprovedJobsImages()
         {
-            return View();
+            return new ObjectResult("");
         }
     }
 }

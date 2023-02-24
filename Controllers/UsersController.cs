@@ -2,11 +2,14 @@
 
 namespace All4SA.Controllers
 {
+    [ApiController]
+    [Route("Users")]
     public class UsersController : Controller
     {
-        public IActionResult Index()
+        [HttpGet(Name = "GetAllUsers")]
+        public IActionResult GetAllUsers()
         {
-            return View();
+            return new ObjectResult("");
         }
     }
 }
