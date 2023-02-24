@@ -1,6 +1,6 @@
 ﻿namespace All4SA.CRUD
 {
-    public class JobTypes
+    public class JobTypesCRUD
     {
     }
 }
