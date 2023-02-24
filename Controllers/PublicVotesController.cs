@@ -11,5 +11,47 @@ namespace All4SA.Controllers
         {
             return new ObjectResult("");
         }
+
+        [HttpGet("GetPublicVoteByID/{publicVoteID}", Name = "GetPublicVoteByID")]
+        public IActionResult GetPublicVoteByID(int publicVoteID)
+        {
+            return new ObjectResult("");
+        }
+
+        [HttpPost("AddPublicVote", Name = "AddPublicVote")]
+        public IActionResult AddPublicVote(int userID, int jobRequestsID)
+        {
+            return new ObjectResult("");
+        }
+
+        [HttpPut("UpdatePublicVote/{publicVoteID}", Name = "UpdatePublicVote")]
+        public IActionResult UpdatePublicVote(int publicVoteID, int userID, int jobRequestsID)
+        {
+            return new ObjectResult("");
+        }
+
+        [HttpPut("UpVoteRequest/{publicVoteID}", Name = "UpVoteRequest")]
+        public IActionResult UpVoteRequest(int publicVoteID)
+        {
+            return new ObjectResult("");
+        }
+
+        [HttpPut("DownVoteRequest/{publicVoteID}", Name = "DownVoteRequest")]
+        public IActionResult DownVoteRequest(int publicVoteID)
+        {
+            return new ObjectResult("");
+        }
+
+        [HttpPut("SoftDeletePublicVote/{publicVoteID}", Name = "SoftDeletePublicVote")]
+        public IActionResult SoftDeletePublicVote(int publicVoteID)
+        {
+            return new ObjectResult("");
+        }
+
+        [HttpDelete("DeletePublicVote/{publicVoteID}", Name = "DeletePublicVote")]
+        public IActionResult DeletePublicVote(int publicVoteID)
+        {
+            return new ObjectResult("");
+        }
     }
 }
