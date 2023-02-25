@@ -1,6 +1,6 @@
 ﻿using All4SA.Models;
-using ProjectManagement.Database;
-using static ProjectManagement.Database.DatabaseActions;
+using All4SA.Database;
+using static All4SA.Database.DatabaseActions;
 
 namespace All4SA.CRUD
 {

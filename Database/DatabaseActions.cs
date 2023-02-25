@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProjectManagement.Database
+namespace All4SA.Database
 {
 
     public interface DatabaseActions

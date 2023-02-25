@@ -1,6 +1,6 @@
 ﻿using Npgsql;
 
-namespace ProjectManagement.Database
+namespace All4SA.Database
 {
     public class DatabaseConnection
     {

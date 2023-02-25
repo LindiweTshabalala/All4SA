@@ -1,6 +1,6 @@
 ﻿namespace All4SA.Models
 {
-    public class JobRequests
+    public class Status
     {
     }
 }

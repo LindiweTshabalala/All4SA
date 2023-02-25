@@ -1,6 +1,6 @@
-﻿using static ProjectManagement.Database.DatabaseActions;
+﻿using static All4SA.Database.DatabaseActions;
 
-namespace ProjectManagement.Database
+namespace All4SA.Database
 {
     public abstract class DatabaseActionsBridge : DatabaseActions
     {
