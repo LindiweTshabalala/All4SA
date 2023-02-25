@@ -14,5 +14,7 @@ namespace All4SA.Database
         public static DatabaseActionsResponses DeleteEntryByID(int ID) => DatabaseActionsResponses.Failed;
         public static DatabaseActionsResponses DeleteAll() => DatabaseActionsResponses.Failed;
         public static DatabaseActionsResponses SoftDeleteEntryByID(int ID) => DatabaseActionsResponses.Failed;
+
+        public static List<object> GetDatabaseTableView(string viewName) => new List<object>();
     }
 }

@@ -1,10 +1,6 @@
-﻿using System;
-
-namespace All4SA.Database
+﻿namespace All4SA.Database
 {
-
     public interface DatabaseActions
-
     {
         enum DatabaseActionsResponses
         {
@@ -83,6 +79,17 @@ namespace All4SA.Database
         /// <returns>Returns a DatabaseActionsResponses response</returns>
         /// <exception cref="NotImplementedException"></exception>
         public static DatabaseActionsResponses DeleteAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Returns table information from the specified view
+        /// </summary>
+        /// <param name="viewName">The name of the view you want to return from the view</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static List<object> GetDatabaseTableView(string viewName)
         {
             throw new NotImplementedException();
         }
