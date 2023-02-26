@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using All4SA.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace All4SA.Controllers
 {
@@ -19,13 +20,13 @@ namespace All4SA.Controllers
         }
 
         [HttpPost("AddImageReference", Name = "AddImageReference")]
-        public IActionResult AddImageReference(string ImageReference)
+        public IActionResult AddImageReference(ImageReference imageReference)
         {
             return new ObjectResult("");
         }
 
         [HttpPut("UpdateImageReference/{imageReferenceID}", Name = "UpdateImageReference")]
-        public IActionResult UpdateImageReference(int imageReferenceID, string ImageReference)
+        public IActionResult UpdateImageReference(ImageReference imageReference)
         {
             return new ObjectResult("");
         }

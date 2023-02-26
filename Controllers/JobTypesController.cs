@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using All4SA.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace All4SA.Controllers
 {
@@ -19,13 +20,13 @@ namespace All4SA.Controllers
         }
 
         [HttpPost("AddJobType", Name = "AddJobType")]
-        public IActionResult AddJobType(string jobTypeName, int hourlyRate)
+        public IActionResult AddJobType(JobType jobType)
         {
             return new ObjectResult("");
         }
 
         [HttpPut("UpdateJobType/{jobTypeID}", Name = "UpdateJobType")]
-        public IActionResult UpdateJobType(int jobTypeID, string jobTypeName, int hourlyRate)
+        public IActionResult UpdateJobType(JobType jobType)
         {
             return new ObjectResult("");
         }

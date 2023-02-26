@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using All4SA.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace All4SA.Controllers
 {
@@ -19,13 +20,13 @@ namespace All4SA.Controllers
         }
 
         [HttpPost("AddPublicVote", Name = "AddPublicVote")]
-        public IActionResult AddPublicVote(int userID, int jobRequestsID)
+        public IActionResult AddPublicVote(PublicVote publicVote)
         {
             return new ObjectResult("");
         }
 
         [HttpPut("UpdatePublicVote/{publicVoteID}", Name = "UpdatePublicVote")]
-        public IActionResult UpdatePublicVote(int publicVoteID, int userID, int jobRequestsID)
+        public IActionResult UpdatePublicVote(PublicVote publicVote)
         {
             return new ObjectResult("");
         }

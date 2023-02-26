@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using All4SA.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace All4SA.Controllers
 {
@@ -19,13 +20,14 @@ namespace All4SA.Controllers
         }
 
         [HttpPost("AddAddress", Name = "AddAddress")]
-        public IActionResult AddAddress(int userID, string province, string city, string streetName, int postalCode)
+        public IActionResult AddAddress(Address address)
         {
+
             return new ObjectResult("");
         }
 
         [HttpPut("UpdateAddress/{addressID}", Name = "UpdateAddress")]
-        public IActionResult UpdateAddress(int addressID, string province, string city, string streetName, int postalCode)
+        public IActionResult UpdateAddress(Address address)
         {
             return new ObjectResult("");
         }

@@ -21,7 +21,7 @@ namespace All4SA.CRUD
             return DatabaseActionsResponses.Failed;
         }
 
-        public static DatabaseActionsResponses UpdateEntryByID(int ID, ApprovedJobRequest updateEntry)
+        public static DatabaseActionsResponses UpdateEntryByID(ApprovedJobRequest updateEntry)
         {
             return DatabaseActionsResponses.Failed;
         }

@@ -43,11 +43,10 @@
         /// <summary>
         /// Udpates an entry in the database table where it matches the given ID number
         /// </summary>
-        /// <param name="ID">The ID number of the item you want to update in the table</param>
         /// <param name="updateEntry">The object that contains the information to update the item in the table</param>
         /// <returns>Returns a DatabaseActionsResponses response</returns>
         /// <exception cref="NotImplementedException"></exception>
-        public static DatabaseActionsResponses UpdateEntryByID(int ID, object updateEntry)
+        public static DatabaseActionsResponses UpdateEntryByID(object updateEntry)
         {
             throw new NotImplementedException();
         }

@@ -10,7 +10,7 @@ namespace All4SA.Database
         public static object GetAll() => new();
         public static DatabaseActionsResponses InsertEntry(object newEntry) => DatabaseActionsResponses.Failed;
 
-        public static DatabaseActionsResponses UpdateEntryByID(int ID, object updateEntry) => DatabaseActionsResponses.Failed;
+        public static DatabaseActionsResponses UpdateEntryByID(object updateEntry) => DatabaseActionsResponses.Failed;
         public static DatabaseActionsResponses DeleteEntryByID(int ID) => DatabaseActionsResponses.Failed;
         public static DatabaseActionsResponses DeleteAll() => DatabaseActionsResponses.Failed;
         public static DatabaseActionsResponses SoftDeleteEntryByID(int ID) => DatabaseActionsResponses.Failed;

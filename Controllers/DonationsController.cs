@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Data.SqlTypes;
+﻿using All4SA.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace All4SA.Controllers
 {
@@ -20,13 +20,13 @@ namespace All4SA.Controllers
         }
 
         [HttpPost("AddDonation", Name = "AddDonation")]
-        public IActionResult AddDonation(int userID, int amount, int jobRequestID)
+        public IActionResult AddDonation(Donation donation)
         {
             return new ObjectResult("");
         }
 
         [HttpPut("UpdateDonation/{donationID}", Name = "UpdateDonation")]
-        public IActionResult UpdateDonation(int donationID, int userID, int amount, int jobRequestID)
+        public IActionResult UpdateDonation(Donation donation)
         {
             return new ObjectResult("");
         }
