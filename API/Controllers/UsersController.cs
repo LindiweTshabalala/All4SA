@@ -1,4 +1,5 @@
-﻿using All4SA.Models;
+﻿using All4SA.CRUD;
+using All4SA.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace All4SA.Controllers
@@ -10,7 +11,7 @@ namespace All4SA.Controllers
         [HttpGet(Name = "GetAllUsers")]
         public IActionResult GetAllUsers()
         {
-            return new ObjectResult("");
+            return new ObjectResult(UsersCRUD.GetAll());
         }
 
         [HttpGet("GetUserByID/{userID}", Name = "GetUserByID")]
