@@ -5,5 +5,5 @@ export interface Job {
     ImageReferenceID: string,
     JobTypeID: number,
     EstimatedCost: number,
-    Status: number,
+    Status: string,
 }
