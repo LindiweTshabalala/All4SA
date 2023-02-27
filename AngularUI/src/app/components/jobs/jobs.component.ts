@@ -9,6 +9,7 @@ import { Job } from 'src/app/interfaces/job';
 export class JobsComponent {
   jobs: Job[] = [];
   
+  
   ngOnInit() {
     let job: Job = {
       JobRequestID: 1,

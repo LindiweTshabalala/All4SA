@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AuthModule } from '@auth0/auth0-angular';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +20,7 @@ import { JobsComponent } from './components/jobs/jobs.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule, 
 
     AuthModule.forRoot({
       domain: 'dev-2wnu2oln5iyh7vpe.us.auth0.com',
