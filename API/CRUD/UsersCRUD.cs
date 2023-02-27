@@ -46,7 +46,24 @@ namespace All4SA.CRUD
 
         public static DatabaseActionsResponses InsertEntry(User newEntry)
         {
-            return DatabaseActionsResponses.Failed;
+            User user = new();
+            try
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO Users (firstName, Surname, idNumber, token) VALUES (@firstName, @surname, @idNumber, @token)", DatabaseConnection.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("firstName", newEntry.firstName);
+                    cmd.Parameters.AddWithValue("surname", newEntry.Surname);
+                    cmd.Parameters.AddWithValue("idNumber", newEntry.idNumber);
+                    cmd.Parameters.AddWithValue("token", newEntry.token);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return DatabaseActionsResponses.Failed;
+            }
+            return DatabaseActionsResponses.Success;
         }
 
         public static DatabaseActionsResponses UpdateEntryByID(User updateEntry)
