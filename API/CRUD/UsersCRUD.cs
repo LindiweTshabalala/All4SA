@@ -1,6 +1,5 @@
 ﻿using All4SA.Database;
 using All4SA.Models;
-using Npgsql;
 using static All4SA.Database.DatabaseActions;
 
 namespace All4SA.CRUD
@@ -14,34 +13,7 @@ namespace All4SA.CRUD
 
         public static new List<User> GetAll()
         {
-            List<User> userList = new List<User>();
-            User user = new();
-            try
-            {
-                using (NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM Users", DatabaseConnection.GetConnection()))
-                {
-                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            user = new User
-                            {
-                                userID = reader.GetInt32(0),
-                                firstName = reader.GetString(1),
-                                Surname = reader.GetString(2),
-                                idNumber = reader.GetString(3),
-                                token = reader.GetString(4),
-                            };
-                            userList.Add(user);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return userList;
+            return new List<User>();
         }
 
         public static DatabaseActionsResponses InsertEntry(User newEntry)
