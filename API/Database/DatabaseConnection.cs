@@ -4,7 +4,7 @@ namespace All4SA.Database
 {
     public class DatabaseConnection
     {
-        private static string ConnectionString;
+        private static string ConnectionString= "Server=localhost;Port=5432;User Id=postgres;Password=F1234;Database=All4SA";
         private static NpgsqlConnection connection;
 
         private static NpgsqlConnection Connection

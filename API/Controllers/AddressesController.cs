@@ -1,4 +1,5 @@
-﻿using All4SA.Models;
+﻿using All4SA.CRUD;
+using All4SA.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace All4SA.Controllers
@@ -10,8 +11,9 @@ namespace All4SA.Controllers
         [HttpGet(Name = "GetAllAddresses")]
         public IActionResult GetAllAddresses()
         {
-            return new ObjectResult("");
+            return new ObjectResult(AddressesCRUD.GetAll());
         }
+
 
         [HttpGet("GetAddressByID/{addressID}", Name = "GetAddressByID")]
         public IActionResult GetAddressByID(int addressID)
