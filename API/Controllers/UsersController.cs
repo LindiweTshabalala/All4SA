@@ -17,7 +17,7 @@ namespace All4SA.Controllers
         [HttpGet("GetUserByID/{userID}", Name = "GetUserByID")]
         public IActionResult GetUserByID(int userID)
         {
-            return new ObjectResult("");
+            return new ObjectResult(UsersCRUD.GetByID(userID));
         }
 
         [HttpPost("AddUser", Name = "AddUser")]

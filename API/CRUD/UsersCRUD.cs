@@ -7,9 +7,35 @@ namespace All4SA.CRUD
 {
     public class UsersCRUD : DatabaseActionsBridge
     {
-        public static new User GetByID(int ID)
+        public static new User GetByID(int userID)
         {
-            return new User();
+            User user = new();
+            try
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM Users WHERE UserID = @UserID", DatabaseConnection.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("userID", userID);
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            user = new User
+                            {
+                                userID = reader.GetInt32(0),
+                                firstName = reader.GetString(1),
+                                Surname = reader.GetString(2),
+                                idNumber = reader.GetString(3),
+                                token = reader.GetString(4)
+                            };
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return user;
         }
 
         public static new List<User> GetAll()
@@ -46,7 +72,6 @@ namespace All4SA.CRUD
 
         public static DatabaseActionsResponses InsertEntry(User newEntry)
         {
-            User user = new();
             try
             {
                 using (NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO Users (firstName, Surname, idNumber, token) VALUES (@firstName, @surname, @idNumber, @token)", DatabaseConnection.GetConnection()))
