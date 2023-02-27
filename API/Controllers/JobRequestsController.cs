@@ -13,7 +13,7 @@ namespace All4SA.Controllers
         [HttpGet(Name = "GetAllJobRequests")]
         public IActionResult GetAllJobRequests()
         {
-            return new ObjectResult(JobRequestsCRUD.GetJobRequests());
+            return new ObjectResult(JobRequestsCRUD.GetAll());
         }
 
 
@@ -29,7 +29,7 @@ namespace All4SA.Controllers
         [HttpPost("AddJobRequest", Name = "AddJobRequest")]
         public IActionResult AddJobRequest(JobRequest jobRequest)
         {
-            return new ObjectResult("");
+            return new ObjectResult(JobRequestsCRUD.InsertEntry(jobRequest));
         }
 
 

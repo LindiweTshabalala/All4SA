@@ -66,6 +66,8 @@ namespace All4SA.CRUD
             return DatabaseActionsResponses.Success;
         }
 
+
+
         public static DatabaseActionsResponses UpdateEntryByID(User updateEntry)
         {
             return DatabaseActionsResponses.Failed;

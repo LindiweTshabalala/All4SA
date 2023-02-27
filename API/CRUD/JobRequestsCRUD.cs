@@ -14,7 +14,7 @@ namespace All4SA.CRUD
         }
 
 
-        public static new List<JobRequest> GetJobRequests()
+        public static new List<JobRequest> GetAll()
         {
             List<JobRequest> requests = new List<JobRequest>();
 
@@ -44,8 +44,29 @@ namespace All4SA.CRUD
 
         public static DatabaseActionsResponses InsertEntry(JobRequest newEntry)
         {
-            return DatabaseActionsResponses.Failed;
+            JobRequest user = new();
+            try
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO JobRequests (JobRequestDescription, UserID, ImageReferenceID, JobTypeID, EstimatedCost) VALUES (@JobRequestDescription, @UserID, @ImageReferenceID, @JobTypeID, @EstimatedCost)", DatabaseConnection.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("JobRequestDescription", newEntry.JobRequestDescription);
+                    cmd.Parameters.AddWithValue("UserID", newEntry.UserID);
+                    cmd.Parameters.AddWithValue("ImageReferenceID", newEntry.ImageReferenceID);
+                    cmd.Parameters.AddWithValue("JobTypeID", newEntry.JobTypeID);
+                    cmd.Parameters.AddWithValue("EstimatedCost", newEntry.EstimatedCost);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return DatabaseActionsResponses.Failed;
+            }
+            return DatabaseActionsResponses.Success;
         }
+
+
 
         public static DatabaseActionsResponses UpdateEntryByID(JobRequest updateEntry)
         {
