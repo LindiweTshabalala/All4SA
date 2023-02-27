@@ -1,4 +1,3 @@
-<app-navigation></app-navigation>
 <article class="content">
     <select name="job type" id="job type" aria-placeholder="lol">
         <option value="road works">Road works</option>
@@ -12,10 +11,8 @@
             <img src="{{job.ImageReferenceID}}" alt="image">
 
             <section class="job-details">
-                <p> Road works {{job.JobTypeID}}</p>
-                <a routerLink="/job-details/{{job.JobRequestID}}">
-                    more details...
-                </a>
+                <p>{{job.JobTypeID}}</p>
+                <button>donate</button>
             </section>            
         </article>
     </section>
