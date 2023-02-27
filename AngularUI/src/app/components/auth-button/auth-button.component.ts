@@ -12,11 +12,20 @@ import { DOCUMENT } from '@angular/common';
     </ng-container>
 
     <ng-template #loggedOut>
-      <button (click)="auth.loginWithRedirect()">Log in</button>
+      <button (click)="logIn()">Log in</button>
     </ng-template>
   `,
   styles: [],
 })
 export class AuthButtonComponent {
+  
+
   constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService) {}
+
+
+  logIn(): void {
+    this.auth.loginWithRedirect();
+
+    this.auth.user$;
+  }
 }
