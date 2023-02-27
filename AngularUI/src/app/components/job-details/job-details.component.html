@@ -1,0 +1,13 @@
+
+<app-navigation></app-navigation>
+
+<article *ngIf="job">
+    <section class="picture-container">
+        <img src="{{job.ImageReferenceID}}" alt="image">
+    </section>
+    <p>{{job.JobRequestDescription}}</p>
+    <section >
+        <p> Estimated Cost: R {{job.EstimatedCost}} </p>
+        <p> status: Approved </p>
+    </section>
+</article>

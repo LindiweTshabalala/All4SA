@@ -1,0 +1,22 @@
+<app-navigation></app-navigation>
+<article class="content">
+    <select name="job type" id="job type" aria-placeholder="lol">
+        <option value="road works">Road works</option>
+        <option value="gardening">Gardening</option>
+    </select>
+
+    <h1>Jobs</h1>
+
+    <section class="jobs">
+        <article class="job-container" *ngFor="let job of jobs">
+            <img src="{{job.ImageReferenceID}}" alt="image">
+
+            <section class="job-details">
+                <p> Road works {{job.JobTypeID}}</p>
+                <a routerLink="/job-details/{{job.JobRequestID}}">
+                    more details...
+                </a>
+            </section>            
+        </article>
+    </section>
+</article>
