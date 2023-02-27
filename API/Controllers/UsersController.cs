@@ -23,7 +23,7 @@ namespace All4SA.Controllers
         [HttpPost("AddUser", Name = "AddUser")]
         public IActionResult AddUser(User user)
         {
-            return new ObjectResult("");
+            return new ObjectResult(UsersCRUD.InsertEntry(user));
         }
 
         [HttpPut("UpdateUser/{userID}", Name = "UpdateUser")]
