@@ -1,4 +1,6 @@
-﻿using All4SA.Models;
+﻿using All4SA.CRUD;
+using All4SA.Models;
+using Google.Type;
 using Microsoft.AspNetCore.Mvc;
 
 namespace All4SA.Controllers
@@ -25,11 +27,19 @@ namespace All4SA.Controllers
             return new ObjectResult("");
         }
 
-        [HttpPut("UpdateDonation/{donationID}", Name = "UpdateDonation")]
-        public IActionResult UpdateDonation(Donation donation)
+
+
+        [HttpPut("UpdateDonation/{jobRequestID}", Name = "UpdateDonation")]
+        public IActionResult UpdateDonation(int jobRequestID, int amount)
         {
-            return new ObjectResult("");
+            Donation donation = new Donation();
+            donation.Amount = amount;
+            donation.JobRequestID = jobRequestID;
+            return new ObjectResult(DonationsCRUD.UpdateEntryByID(donation));
         }
+
+
+
 
         [HttpPut("SoftDeleteDonation/{donationID}", Name = "SoftDeleteDonation")]
         public IActionResult SoftDeleteDonation(int donationID)
