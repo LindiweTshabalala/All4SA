@@ -122,20 +122,6 @@ VALUES
 	('Complete'),
 	('In Progress'),
 	('Incomplete');
-	
-  
-INSERT INTO ApprovedJobs (JobRequestID, UserID, StatusID)
-VALUES 
-   (11, 1, 1),
-   (13, 2, 1),
-   (12, 3, 2),
-   (14, 4, 2),
-   (16, 5, 3),
-   (15, 6, 3),
-   (17, 7, 3),
-   (18, 8, 1),
-   (19, 9, 2),
-   (20, 10, 3);
    
 INSERT INTO ApprovedJobs (JobRequestID, UserID, StatusID)
 VALUES 
