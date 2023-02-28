@@ -9,18 +9,24 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { AuthButtonComponent } from './components/auth-button/auth-button.component';
 import { JobsComponent } from './components/jobs/jobs.component';
+import { JobDetailComponent } from './components/job-detail/job-detail.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     AuthButtonComponent,
-    JobsComponent
+    JobsComponent,
+    JobDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule, 
+    HttpClientModule,
+    FormsModule, 
+    ReactiveFormsModule,
 
     AuthModule.forRoot({
       domain: 'dev-2wnu2oln5iyh7vpe.us.auth0.com',

@@ -1,3 +1,4 @@
+<app-navigation></app-navigation>
 <article class="content">
     <select name="job type" id="job type" aria-placeholder="lol">
         <option value="road works">Road works</option>
@@ -13,7 +14,7 @@
             <section class="job-details">
                 <p *ngIf="job.status" ><b> Approved!!! </b></p>
                 <p *ngIf="!job.status" ><b> Pending... </b></p>
-                <a href="">More details</a>
+                <a routerLink="/detail/{{job.jobRequestID}}">More details</a>
             </section>            
         </article>
     </section>

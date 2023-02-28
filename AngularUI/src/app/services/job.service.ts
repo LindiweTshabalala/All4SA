@@ -13,15 +13,20 @@ export class JobService {
 
   constructor(private http: HttpClient) {}
 
-  getJob(): Observable<Job[]> {
-    console.log(this.url+'/JobRequests');
+  getJobs(): Observable<Job[]> {
     return this.http.get<Job[]>(this.url+'/JobRequests')
-      // .pipe(
-      //   tap((_) => console.log('fetched JobRequests')),
-      //   catchError(this.handleError<Job[]>('getJobs', []))
-      // );
+      .pipe(
+        tap((_) => console.log('fetched JobRequests')),
+        catchError(this.handleError<Job[]>('getJobs', []))
+      );
   }
-  
+
+  getJob(id: number): Observable<Job> {
+    return this.http.get<Job>(this.url+'/JobRequests/GetJobRequestByID/'+id)
+      .pipe(
+        tap((_) => console.log('fetched JobRequest: '+id)),
+      );
+  }  
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

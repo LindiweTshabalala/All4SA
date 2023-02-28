@@ -1,7 +1,5 @@
 ﻿using All4SA.CRUD;
-using All4SA.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Xml.Linq;
 
 
 namespace All4SA.Controllers
@@ -17,7 +15,6 @@ namespace All4SA.Controllers
         {
             return new ObjectResult(JobRequestDetailsCRUD.GetAll());
         }
-
 
 
         [HttpGet("GetJobRequestDetailsByID/{jobRequestID}", Name = "GetJobRequestDetailsByID")]

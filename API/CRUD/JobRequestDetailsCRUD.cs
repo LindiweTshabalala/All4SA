@@ -51,12 +51,21 @@ namespace All4SA.CRUD
             {
                 details.Add(new JobRequestDetails
                 {
+<<<<<<< HEAD
                     firstName = reader.GetString(0),
                     jobRequestID = reader.GetInt32(1),
                     jobRequestDescription = reader.GetString(2),
                     jobType = reader.GetString(3),
                     estimatedCost = reader.GetDecimal(4),
                     imageReference = reader.GetString(5),
+=======
+                    firstName= reader.GetString(0),
+                    jobRequestID = reader.GetInt32(1),
+                    jobRequestDescription= reader.GetString(2),
+                    jobType = reader.GetString(3),
+                    estimatedCost = reader.GetDecimal(4),
+                    imageReference = reader.GetString(5)
+>>>>>>> 8da18669af85ff4166fa07eac89e10cb5ae46216
 
                 });
             }
