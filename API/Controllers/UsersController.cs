@@ -20,10 +20,28 @@ namespace All4SA.Controllers
             return new ObjectResult(UsersCRUD.GetByID(userID));
         }
 
-        [HttpPost("AddUser", Name = "AddUser")]
-        public IActionResult AddUser(User user)
+        [HttpPost("AddUser/{name}/{surname}/{token}", Name = "AddUser")]
+        public IActionResult AddUser( string name, string surname, string token )
         {
-            return new ObjectResult(UsersCRUD.InsertEntry(user));
+            User user = new User()
+            {
+                firstName = name,
+                Surname = surname,
+                idNumber = "0000000000000",
+                token = token,
+                isDeleted = false
+            };
+            
+            User? checkUser = UsersCRUD.GetByToken(token);
+
+
+            if (checkUser == null)
+            {
+                UsersCRUD.InsertEntry(user);
+                return new ObjectResult(user);
+            }
+
+            return new ObjectResult(checkUser);
         }
 
         [HttpPut("UpdateUser/{userID}", Name = "UpdateUser")]
