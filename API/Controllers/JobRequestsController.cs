@@ -21,7 +21,16 @@ namespace All4SA.Controllers
         [HttpGet("GetJobRequestByID/{jobRequestID}", Name = "GetJobRequestByID")]
         public IActionResult GetJobRequestByID(int jobRequestID)
         {
-            return new ObjectResult("");
+            JobRequest? job = JobRequestsCRUD.GetByID(jobRequestID);
+
+            ObjectResult objectResult = new ObjectResult(job);
+
+            if (job == null)
+            {
+                objectResult.StatusCode = 404;
+                return objectResult;
+            }
+            return objectResult;
         }
 
 
