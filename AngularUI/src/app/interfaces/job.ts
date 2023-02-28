@@ -1,9 +1,19 @@
 export interface Job {
-    JobRequestID: number,
-    JobRequestDescription: string ,
-    UserID: number,
-    ImageReferenceID: string,
-    JobTypeID: number,
-    EstimatedCost: number,
-    Status: number,
+    jobRequestID: number,
+    jobRequestDescription: string,
+    userID: number,
+    imageReferenceID: number,
+    jobTypeID: number,
+    estimatedCost: number,
+    status: boolean,
 }
+
+// {
+//     "jobRequestID": 1,
+//     "jobRequestDescription": "Installing a fence around a park",
+//     "userID": 1,
+//     "imageReferenceID": 1,
+//     "jobTypeID": 1,
+//     "estimatedCost": 100,
+//     "status": false
+//   },

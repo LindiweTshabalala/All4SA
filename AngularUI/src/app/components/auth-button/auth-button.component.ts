@@ -45,7 +45,6 @@ export class AuthButtonComponent {
 
   }
 
-
   logIn(): void {
     this.auth.loginWithRedirect();
   }

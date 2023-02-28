@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Job } from 'src/app/interfaces/job';
+import { JobService } from 'src/app/services/job.service';
 
 @Component({
   selector: 'app-jobs',
@@ -9,18 +10,10 @@ import { Job } from 'src/app/interfaces/job';
 export class JobsComponent {
   jobs: Job[] = [];
   
-  
+  constructor(private jobService: JobService) {}
+
   ngOnInit() {
-    let job: Job = {
-      JobRequestID: 1,
-      JobRequestDescription: 'Description',
-      UserID: 1,
-      ImageReferenceID: 'https://cdn.pixabay.com/photo/2023/02/05/17/25/leaves-7770035_960_720.jpg',
-      JobTypeID: 0,
-      EstimatedCost: 200,
-      Status: 0
-    }
-      
-    this.jobs.push(job);
+    this.jobService.getJob()
+      .subscribe(jobs => this.jobs = jobs);
   }
 }
