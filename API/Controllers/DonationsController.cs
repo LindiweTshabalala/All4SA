@@ -1,6 +1,5 @@
 ﻿using All4SA.CRUD;
 using All4SA.Models;
-using Google.Type;
 using Microsoft.AspNetCore.Mvc;
 
 namespace All4SA.Controllers
@@ -30,7 +29,7 @@ namespace All4SA.Controllers
 
 
         [HttpPut("UpdateDonation/{jobRequestID}", Name = "UpdateDonation")]
-        public IActionResult UpdateDonation(int jobRequestID, int amount)
+        public IActionResult UpdateDonation(int jobRequestID, decimal amount)
         {
             Donation donation = new Donation();
             donation.Amount = amount;
