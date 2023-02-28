@@ -11,6 +11,7 @@ import { AuthButtonComponent } from './components/auth-button/auth-button.compon
 import { JobsComponent } from './components/jobs/jobs.component';
 import { JobDetailComponent } from './components/job-detail/job-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PublicvotesComponent } from './components/publicvotes/publicvotes.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavigationComponent,
     AuthButtonComponent,
     JobsComponent,
-    JobDetailComponent
+    JobDetailComponent,
+    PublicvotesComponent
   ],
   imports: [
     BrowserModule,
