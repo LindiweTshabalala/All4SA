@@ -20,7 +20,7 @@ namespace All4SA.Controllers
             return new ObjectResult(UsersCRUD.GetByID(userID));
         }
 
-        [HttpPost("AddUser/{name}/{surname}/{token}", Name = "AddUser")]
+        [HttpGet("AddUser/{name}/{surname}/{token}", Name = "AddUser")]
         public IActionResult AddUser( string name, string surname, string token )
         {
             User user = new User()
