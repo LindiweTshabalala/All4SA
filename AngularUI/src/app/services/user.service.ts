@@ -3,6 +3,7 @@ import { User } from '../interfaces/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, count, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+import { Token } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class UserService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.url+'/Users')
@@ -24,31 +25,25 @@ export class UserService {
     );
   }
 
-  createUser(user: User): Observable<User> {
-    if (this.users.some(el => el.token === user.token) || user.firstName === undefined) {
-      return new Observable<User>;
-    }
-
+  createUser(user: User): void {
     console.log("Creating user: ");
     console.log(user)
 
-    return this.http.post<User>(this.url+"/Users/AddUser", user, this.httpOptions)
-      .pipe(
-        tap((_) => console.log('Created user'))
-      )
-  }
+    fetch(this.url+`/Users/AddUser/${user.firstName}/${user.surname}/${user.token}`)
+      .then((response) => response.json())
+      .then((data) => console.log(data));
 
-  ngOnInit(): void {
-    this.getUsers()
-      .subscribe(users => this.users = users);
+
+    // return this.http.get<User>(this.url+`/Users`)
+    //   .pipe(
+    //     tap((_) => console.log('Created user'))
+    //   );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
+      console.error(error); 
 
-      // TODO: better job of transforming error for user consumption
       console.log(`${operation} failed: ${error.message}`);
 
       // Let the app keep running by returning an empty result.
