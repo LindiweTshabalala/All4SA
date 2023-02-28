@@ -10,6 +10,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { AuthButtonComponent } from './components/auth-button/auth-button.component';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { JobDetailComponent } from './components/job-detail/job-detail.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { JobDetailComponent } from './components/job-detail/job-detail.component
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule, 
+    HttpClientModule,
+    FormsModule, 
 
     AuthModule.forRoot({
       domain: 'dev-2wnu2oln5iyh7vpe.us.auth0.com',

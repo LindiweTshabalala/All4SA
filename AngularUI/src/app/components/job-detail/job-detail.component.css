@@ -1,0 +1,35 @@
+
+img {
+    width: 50%;
+    height: 50%;
+}
+
+.container {
+    display: grid;
+    padding: 0% 10%;
+}
+
+.details-container {
+    text-align: center;
+    padding: 5% 0%;
+}
+
+.info-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.inner {
+    background-color: #1f2024;
+    margin: 2% 0%;
+    padding: 2% 0%;
+    border-radius: 50px;
+}
+
+p {
+    background-color: #1f2024;
+}
+
+.donation-form {
+    display: block;
+}

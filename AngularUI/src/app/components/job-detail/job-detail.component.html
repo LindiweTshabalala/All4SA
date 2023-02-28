@@ -1,1 +1,33 @@
-<p>job-detail works!</p>
+<app-navigation></app-navigation>
+<article *ngIf="job" class="container">
+    <section>
+        <article class="details-container ">
+            <section class="image-container inner">
+                <img src="https://cdn.pixabay.com/photo/2023/02/05/17/25/leaves-7770035_960_720.jpg" alt="">
+            </section>
+
+            <section class="info-container inner">
+                <p *ngIf="job.status">Job: Approved!!! </p>
+                <p *ngIf="!job.status">Job: Pending... </p>
+                <p>Estimation for job: R {{job.estimatedCost}}</p>
+            </section >
+
+            <section class="inner">
+                <p>Description: {{job.jobRequestDescription}}</p>
+            </section>
+
+            <form class="donation-form inner">
+                <p> <b> Donations for the job </b></p> <br><br>
+
+                <input type="number" name="userID" value="{{job.userID}}" hidden>
+
+                <input type="number" name="JobRequestID" value="{{job.jobRequestID}}" hidden>
+
+                <label for="amount">Amount</label> <br><br>
+                <input type="number" name="amount" id="amount"> <br><br>
+
+                <button type="button" (click)="makeDonation()">donate </button>
+            </form>
+        </article>
+    </section>
+</article>
