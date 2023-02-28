@@ -7,5 +7,6 @@
         public string Surname { get; set; }
         public string idNumber { get; set; }
         public string token { get; set; }
+        public bool isDeleted { get; set; }
     }
 }
