@@ -15,8 +15,18 @@ export class AuthButtonComponent {
     firstName: "",
     surname: "",
     idNumber: "",
-    token: "" 
+    token: "",
+    isDeleted: false 
   };  
+
+  // {
+  //   "userID": 0,
+  //   "firstName": "string",
+  //   "surname": "string",
+  //   "idNumber": "string",
+  //   "token": "string",
+  //   "isDeleted": true
+  // }
 
   constructor(
     private userService: UserService,
@@ -29,16 +39,16 @@ export class AuthButtonComponent {
     this.auth.user$
       .subscribe((authUser) => {
 
-        console.log(authUser)
+        // console.log(authUser)
 
         this.user = {
           userID: 0,
           firstName: authUser?.name?.split(" ")[0],
           surname: authUser?.family_name,
           idNumber: '0000000000000',
-          token: authUser?.sub 
+          token: authUser?.sub,
+          isDeleted: false
         }
-        
         
         this.userService.createUser(this.user);
       });  
