@@ -17,7 +17,7 @@ $$;
 
 
 
-CREATE PROCEDURE add_donation_amount(increase_amount MONEY, jobrequestid_)
+CREATE PROCEDURE add_donation_amount(increase_amount MONEY, jobrequestid_ INT)
 LANGUAGE plpgsql
 AS $$
 BEGIN
