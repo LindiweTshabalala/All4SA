@@ -11,8 +11,9 @@
             <img src='https://cdn.pixabay.com/photo/2023/02/05/17/25/leaves-7770035_960_720.jpg' alt="image">
 
             <section class="job-details">
-                <p>{{job.status}}</p>
-                <button>donate</button>
+                <p *ngIf="job.status" ><b> Approved!!! </b></p>
+                <p *ngIf="!job.status" ><b> Pending... </b></p>
+                <a href="">More details</a>
             </section>            
         </article>
     </section>
