@@ -28,7 +28,7 @@ namespace All4SA.Controllers
 
 
 
-        [HttpPut("UpdateDonation/{jobRequestID}", Name = "UpdateDonation")]
+        [HttpPut("UpdateDonation/{jobRequestID}/{amount}", Name = "UpdateDonation")]
         public IActionResult UpdateDonation(int jobRequestID, decimal amount)
         {
             Donation donation = new Donation();
