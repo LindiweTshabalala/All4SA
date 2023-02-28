@@ -15,7 +15,7 @@ namespace All4SA.Controllers
         [HttpGet(Name = "GetAllJobRequestDetails")]
         public IActionResult GetAllJobRequestDetails()
         {
-            return new ObjectResult("");
+            return new ObjectResult(JobRequestDetailsCRUD.GetAll());
         }
 
 

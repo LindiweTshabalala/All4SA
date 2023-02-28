@@ -39,9 +39,29 @@ namespace All4SA.CRUD
             return jobRequestDetails;
         }
 
-        public static new List<ApprovedJobRequest> GetAll()
+        public static new List<JobRequestDetails> GetAll()
         {
-            return new List<ApprovedJobRequest>();
+            List<JobRequestDetails> details = new List<JobRequestDetails>();
+
+            string query = "SELECT * FROM vwJobRequestDetails";
+
+            using NpgsqlCommand command = new NpgsqlCommand(query, DatabaseConnection.GetConnection());
+            using NpgsqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                details.Add(new JobRequestDetails
+                {
+                    firstName = reader.GetString(0),
+                    jobRequestID = reader.GetInt32(1),
+                    jobRequestDescription = reader.GetString(2),
+                    jobType = reader.GetString(3),
+                    estimatedCost = reader.GetDecimal(4),
+                    imageReference = reader.GetString(5),
+
+                });
+            }
+            details.Add(new JobRequestDetails());
+            return details;
         }
 
         public static DatabaseActionsResponses InsertEntry(ApprovedJobRequest newEntry)
