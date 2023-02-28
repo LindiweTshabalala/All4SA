@@ -76,7 +76,7 @@ VALUES
 	('Neighborhood watch', 2, 2, 2, 150.00),
 	('Fixing/closing potholes', 3, 3, 3, 200.00),
 	('Cutting grass at the park', 4, 4, 4, 75.00),
-	('Ctting of trees in the park', 5, 5, 5, 125.00),
+	('Cutting of trees in the park', 5, 5, 5, 125.00),
 	('Cleaning the neighborhood', 6, 6, 1, 50.00),
 	('Cutting grass near a local school', 7, 7, 2, 75.00),
 	('Building a library', 8, 8, 3, 250.00),
