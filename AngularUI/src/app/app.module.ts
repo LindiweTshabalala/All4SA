@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { AuthButtonComponent } from './components/auth-button/auth-button.component';
 import { JobsComponent } from './components/jobs/jobs.component';
+import { JobDetailComponent } from './components/job-detail/job-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     AuthButtonComponent,
-    JobsComponent
+    JobsComponent,
+    JobDetailComponent
   ],
   imports: [
     BrowserModule,
