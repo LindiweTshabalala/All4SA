@@ -34,6 +34,7 @@ h1 {
 
 .job-details {
     display: flex;
+    flex-wrap: wrap;
     height: 19%;
     justify-content: space-between;
     background-color: white;
@@ -71,3 +72,37 @@ a {
     color: black;
     padding: 3% 10%;
 }
+
+
+/* for screens with width less than or equal to 480px */
+@media only screen and (max-width: 480px) {
+    .jobs {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+  }
+  
+  /* for screens with width greater than 480px and less than or equal to 768px */
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    .jobs {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+    }
+  }
+  
+  /* for screens with width greater than 768px and less than or equal to 1024px */
+  @media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .jobs {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto;
+    }
+  }
+  
+  /* for screens with width greater than 1024px */
+  @media only screen and (min-width: 1025px) {
+    .jobs {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto;
+    }
+  }
+  

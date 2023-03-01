@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root{
+    --main-color:#ff5823;
+    --accent-color:#14192E;
+    --background :#F0EEED;
+}
 * {
     box-sizing: border-box;
     margin: 0%;

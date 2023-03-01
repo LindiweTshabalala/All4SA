@@ -1,3 +1,8 @@
+:root{
+    --main-color:#ff5823;
+    --accent-color:#14192E;
+    --background :#F0EEED;
+}
 
 li, a, button {
     font-size: 16px;
