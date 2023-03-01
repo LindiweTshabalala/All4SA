@@ -3,6 +3,7 @@
     public class PublicVote
     {
         public int PublicVoteID {get; set;}
+        public int UserID { get; set; }
         public string FirstName { get; set;}
         public string Surname { get; set;}
         public int JobRequestID { get; set;}

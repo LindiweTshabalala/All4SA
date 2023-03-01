@@ -16,6 +16,10 @@
                 <p>Description: {{job.jobRequestDescription}}</p>
             </section>
 
+            <section>
+              <button id="job-apply-button" [routerLink]="['/applyjobrequest', job.jobRequestID]">Apply For Job</button>
+            </section>
+
             <form class="donation-form inner">
                 <p> <b> Donations for the job </b></p> <br><br>
 

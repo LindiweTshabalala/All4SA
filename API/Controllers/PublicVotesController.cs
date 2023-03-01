@@ -1,5 +1,6 @@
 ﻿using All4SA.CRUD;
 using All4SA.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace All4SA.Controllers
@@ -31,7 +32,14 @@ namespace All4SA.Controllers
         [HttpPost("AddPublicVote", Name = "AddPublicVote")]
         public IActionResult AddPublicVote(PublicVote publicVote)
         {
-            return new ObjectResult("");
+            try
+            {
+                PublicVotesCRUD.InsertEntry(publicVote);
+                return Ok();
+            } catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpPut("UpdatePublicVote/{publicVoteID}", Name = "UpdatePublicVote")]

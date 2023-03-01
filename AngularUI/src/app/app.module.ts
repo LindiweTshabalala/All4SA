@@ -15,7 +15,8 @@ import { PublicvotesComponent } from './components/publicvotes/publicvotes.compo
 
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app'
 import { provideStorage, getStorage } from '@angular/fire/storage';
-import { CreateJobComponent } from './components/create-job/create-job.component'
+import { CreateJobComponent } from './components/create-job/create-job.component';
+import { JobrequestApplyComponent } from './components/jobrequest-apply/jobrequest-apply.component'
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { CreateJobComponent } from './components/create-job/create-job.component
     JobsComponent,
     JobDetailComponent,
     PublicvotesComponent,
-    CreateJobComponent
+    CreateJobComponent,
+    JobrequestApplyComponent
   ],
   imports: [
     BrowserModule,
