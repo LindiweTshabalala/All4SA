@@ -16,7 +16,7 @@ export class JobTypeService {
   getJobTypes(): Observable<JobType[]> {
     return this.http.get<JobType[]>(this.url+'/JobTypes')
     .pipe(
-      tap((_) => console.log('fetched Users')),
+      tap((_) => console.log('fetched jobTypes')),
       catchError(this.handleError<JobType[]>('getUsers', []))
     );
   }

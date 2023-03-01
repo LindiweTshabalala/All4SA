@@ -1,4 +1,5 @@
 export interface JobType {
-    JobTypeName: string,
-    HourlyRate: number
+    jobTypeID: number,
+    jobTypeName: string,
+    hourlyRate: number
 }

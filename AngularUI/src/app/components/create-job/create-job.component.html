@@ -16,12 +16,12 @@
                 <label for="Description"></label>
                 <input type="text" placeholder="Please describe what needs to be done"> <br><br>
 
-                <label for="jobType">Type of work that needs to be done</label>
-                <select name="jobType" id="jobType" (change)="calculateEstimateAmount()">
-                    <option *ngFor="let jobType of jobTypes" value="{{jobType}}"></option>
+                <label for="jobType">Type of work that needs to be done</label><br><br>
+                <select name="jobType" id="jobType" (change)="calculateEstimateAmount()" required>
+                    <option *ngFor="let jobType of jobTypes" value="{{jobType.jobTypeName}}">{{jobType.jobTypeName}}</option>
                 </select>
 
-
+                <button (click)="createJobRequest()" >Create Job Request</button>
             </form>
         </article>
     </section>

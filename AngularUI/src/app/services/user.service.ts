@@ -24,23 +24,26 @@ export class UserService {
     );
   }
 
-  createUser(user: User): Observable<User> {
-    if (this.users.some(el => el.token === user.token) || user.firstName === undefined) {
-      return new Observable<User>;
-    }
-
+  createUser(user: User): void {
     console.log("Creating user: ");
     console.log(user)
 
-    return this.http.post<User>(this.url+"/Users/AddUser", user, this.httpOptions)
-      .pipe(
-        tap((_) => console.log('Created user'))
-      )
+    fetch(this.url+`/Users/AddUser/${user.firstName}/${user.surname}/${user.token}`)
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+
+
+  // return this.http.get<User>(this.url+`/Users`)
+  //   .pipe(
+  //     tap((_) => console.log('Created user'))
+  //   );
   }
 
-  ngOnInit(): void {
-    this.getUsers()
-      .subscribe(users => this.users = users);
+  getUserByToken(sub?: string): Observable<User> {
+    return this.http.get<User>(this.url+`/Users/GetUserByToken/${sub}`)
+    .pipe(
+      tap((_) => console.log('fetched User by token')),
+    );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
