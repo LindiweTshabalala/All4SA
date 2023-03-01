@@ -67,6 +67,17 @@ namespace All4SA.Controllers
 
 
 
+        [HttpPut("DownVoteRequest/{publicVoteID}", Name = "DownVoteRequest")]
+        public IActionResult DownVoteRequest(int publicVoteID)
+        {
+            PublicVote publicVote = new PublicVote();
+            publicVote.PublicVoteID = publicVoteID;
+            return new ObjectResult(PublicVotesCRUD.UpdateEntryByID_downvote(publicVote));
+        }
+
+
+
+
 
 
 

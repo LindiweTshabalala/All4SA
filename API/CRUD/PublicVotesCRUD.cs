@@ -131,28 +131,28 @@ namespace All4SA.CRUD
 
 
 
-        //public static DatabaseActionsResponses UpdateEntryByID_downvote(PublicVote updateEntry)
-        //{
-        //    try
-        //    {
-        //        using (NpgsqlCommand command = new NpgsqlCommand(
-        //            "UPDATE Donations SET Amount = Amount + CAST(@increase_amount as money) WHERE JobRequestID = @JobRequestID",
-        //            DatabaseConnection.GetConnection()))
-        //        {
+        public static DatabaseActionsResponses UpdateEntryByID_downvote(PublicVote updateEntry)
+        {
+            try
+            {
+                using (NpgsqlCommand command = new NpgsqlCommand(
+                    "UPDATE publicvotes SET downvotes = (downvotes + 1) WHERE PublicVoteID = PublicVoteID",
+                    DatabaseConnection.GetConnection()))
+                {
 
-        //            command.Parameters.AddWithValue("JobRequestID", updateEntry.JobRequestID);
-        //            command.Parameters.AddWithValue("increase_amount", updateEntry.Amount);
+                    command.Parameters.AddWithValue("publicvoteid", updateEntry.PublicVoteID);
+                    command.Parameters.AddWithValue("downvotes", updateEntry.Downvotes);
 
-        //            command.ExecuteNonQuery();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.Message);
-        //        return DatabaseActionsResponses.Failed;
-        //    }
-        //    return DatabaseActionsResponses.Success;
-        //}
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return DatabaseActionsResponses.Failed;
+            }
+            return DatabaseActionsResponses.Success;
+        }
 
 
 
