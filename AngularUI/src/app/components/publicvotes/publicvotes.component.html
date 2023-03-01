@@ -1,15 +1,22 @@
 <app-navigation></app-navigation>
-<article class="content">
+<article class="publicVotes" *ngIf="publicVotes">
   <h1>Public Votes</h1>
-
-  <section class="publicVotes">
-    <article class="publicVote-container" *ngFor="let publicVote of publicVotes">
-      <p>{{publicVote.publicVoteID}}</p>
-      <p>{{publicVote.firstName}}</p>
-      <p>{{publicVote.surname}}</p>
-      <p>{{publicVote.jobRequestID}}</p>
-      <p>{{publicVote.upvotes}}</p>
-      <p>{{publicVote.downvotes}}</p>
-    </article>
-  </section>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Job Request ID</th>
+      <th>Upvotes</th>
+      <th>Downvotes</th>
+    </tr>
+    <tr class="publicVote-container" *ngFor="let publicVote of publicVotes">
+      <td>{{publicVote.firstName}}</td>
+      <td>{{publicVote.surname}}</td>
+       <td>
+          <a class="publicVote-link" routerLink="/detail/{{publicVote.jobRequestID}}">{{publicVote.jobRequestID}}</a>
+       </td>
+      <td>{{publicVote.upvotes}}</td>
+      <td>{{publicVote.downvotes}}</td>
+    </tr>
+  </table>
 </article>
