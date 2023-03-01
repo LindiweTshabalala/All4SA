@@ -8,3 +8,5 @@ ADD CONSTRAINT UC_User UNIQUE (token);
 ALTER TABLE Users
 ADD CONSTRAINT UCID_User UNIQUE (idNumber);
 
+ALTER TABLE ImageReferences
+ALTER COLUMN ImageReference TYPE varchar(1000);

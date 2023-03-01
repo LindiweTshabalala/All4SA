@@ -110,13 +110,13 @@ namespace All4SA.CRUD
         {
             try
             {
-                using (NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO Users (firstName, Surname, idNumber, token, isDeleted) VALUES (@firstName, @surname, @idNumber, @token, @isDeleted)", DatabaseConnection.GetConnection()))
+                using (NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO Users (firstName, Surname, idNumber, token) VALUES (@firstName, @surname, @idNumber, @token)", DatabaseConnection.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("firstName", newEntry.firstName);
                     cmd.Parameters.AddWithValue("surname", newEntry.Surname);
                     cmd.Parameters.AddWithValue("idNumber", newEntry.idNumber);
                     cmd.Parameters.AddWithValue("token", newEntry.token);
-                    cmd.Parameters.AddWithValue("isDeleted", newEntry.isDeleted);
+                    //cmd.Parameters.AddWithValue("isDeleted", newEntry.isDeleted ? 0 : 1);
                     cmd.ExecuteNonQuery();
                 }
             }

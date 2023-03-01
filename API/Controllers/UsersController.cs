@@ -29,6 +29,7 @@ namespace All4SA.Controllers
         [HttpGet("AddUser/{name}/{surname}/{token}", Name = "AddUser")]
         public IActionResult AddUser( string name, string surname, string token )
         {
+
             User user = new User()
             {
                 firstName = name,
