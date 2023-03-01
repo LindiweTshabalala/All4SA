@@ -20,6 +20,12 @@ namespace All4SA.Controllers
             return new ObjectResult(PublicVotesCRUD.GetByID(publicVoteID));
         }
 
+        [HttpGet("GetPublicVoteByJobRequestID/{jobRequestID}", Name = "GetPublicVoteByJobRequestID")]
+        public IActionResult GetPublicVoteByJobRequestID(int jobRequestID)
+        {
+            return new ObjectResult(PublicVotesCRUD.GetByJobRequestID(jobRequestID));
+        }
+
         [HttpPost("AddPublicVote", Name = "AddPublicVote")]
         public IActionResult AddPublicVote(PublicVote publicVote)
         {
