@@ -3,11 +3,12 @@
         alt="logo" />
 
     <nav>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li *ngIf="auth.isAuthenticated$ | async "><a routerLink="/create">Create Job</a></li>
-            <li><a href="#">about us</a></li>
-        </ul>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li *ngIf="auth.isAuthenticated$ | async "><a routerLink="/create">Create Job</a></li>
+        <li *ngIf="auth.isAuthenticated$ | async "><a routerLink="/publicvotes">Vote</a></li>
+        <li><a href="#">about us</a></li>
+      </ul>
     </nav>
 
     <app-auth-button></app-auth-button>
