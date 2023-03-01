@@ -17,7 +17,15 @@ namespace All4SA.Controllers
         [HttpGet("GetPublicVoteByID/{publicVoteID}", Name = "GetPublicVoteByID")]
         public IActionResult GetPublicVoteByID(int publicVoteID)
         {
-            return new ObjectResult("");
+            return new ObjectResult(PublicVotesCRUD.GetByID(publicVoteID));
+        }
+
+        [HttpGet("GetPublicVoteByJobRequestID/{jobRequestID}", Name = "GetPublicVoteByJobRequestID")]
+        public IActionResult GetPublicVoteByJobRequestID(int jobRequestID)
+        {
+            Console.WriteLine("jobRequestID: " + jobRequestID);
+
+            return new ObjectResult(PublicVotesCRUD.GetByJobRequestID(jobRequestID));
         }
 
         [HttpPost("AddPublicVote", Name = "AddPublicVote")]
