@@ -1,5 +1,6 @@
 export interface PublicVote {
   publicVoteID: number,
+  userID: number,
   firstName: string,
   surname: number,
   jobRequestID: number,

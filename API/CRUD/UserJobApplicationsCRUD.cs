@@ -5,7 +5,7 @@ using static All4SA.Database.DatabaseActions;
 
 namespace All4SA.CRUD
 {
-    public class PublicVotesCRUD : DatabaseActionsBridge
+    public class UserJobApplicationsCRUD : DatabaseActionsBridge
     {
         public static new PublicVote GetByID(int ID)
         {
