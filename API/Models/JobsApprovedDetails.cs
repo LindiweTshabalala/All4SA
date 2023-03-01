@@ -1,6 +1,6 @@
 ﻿namespace All4SA.Models
 {
-    public class JobsApproved
+    public class JobsApprovedDetails
     {
         public int approvedjobid { get; set; }
         public string jobrequestdescription { get; set; }
