@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
@@ -26,7 +27,8 @@ export class JobrequestApplyComponent {
   constructor(private route: ActivatedRoute,
     public auth: AuthService,
     private publicvotesService: PublicvotesService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -54,5 +56,7 @@ export class JobrequestApplyComponent {
 
     console.log("After: " + this.user.userID)
     this.publicvotesService.addToPublicVotes(this.user.userID, this.jobRequestID)
+
+    this.router.navigate([''], { replaceUrl: true });
   }
 }
