@@ -25,7 +25,7 @@ import { CreateJobComponent } from './components/create-job/create-job.component
     AuthButtonComponent,
     JobsComponent,
     JobDetailComponent,
-    PublicvotesComponent
+    PublicvotesComponent,
     CreateJobComponent
   ],
   imports: [
