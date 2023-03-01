@@ -4,6 +4,7 @@ import { JobType } from 'src/app/interfaces/jobType';
 import { JobTypeService } from 'src/app/services/job-type.service';
 import { UserService } from 'src/app/services/user.service';
 import { Storage, ref, uploadBytesResumable, getDownloadURL } from '@angular/fire/storage'
+import { LinkService } from 'src/app/services/link.service';
 
 @Component({
   selector: 'app-create-job',
@@ -23,7 +24,8 @@ export class CreateJobComponent {
     public jobTypeService: JobTypeService,
     public userServie: UserService,
     public auth: AuthService,
-    public storage: Storage
+    public storage: Storage,
+    public linkService: LinkService
   ) {}
 
   calculateEstimateAmount(): void {
@@ -64,7 +66,8 @@ export class CreateJobComponent {
   } 
   
   createJobRequest(): void {
-    
+    this.linkService.getImageByLink(this.pictureUrl)
+      .subscribe(link => console.log(link));
   }
   
   ngOnInit () {
