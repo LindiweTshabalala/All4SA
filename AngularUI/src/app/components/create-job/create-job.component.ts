@@ -12,12 +12,14 @@ import { LinkService } from 'src/app/services/link.service';
   styleUrls: ['./create-job.component.css']
 })
 export class CreateJobComponent {
-  public file: any = {};
+  public file: any = 0;
   jobTypes: JobType[] = [];
   jobTypeID: number = 1;
   estimatedAmount: number = 0;
   pictureUrl: string = "";
   userID: number = 0;
+
+  showPreviewImage: boolean = false;
   
 
   constructor(
@@ -34,11 +36,8 @@ export class CreateJobComponent {
     let jobType: JobType = this.jobTypes.filter(n => n.jobTypeName === jobTypeName)[0];
     
     this.jobTypeID = jobType.jobTypeID;
-    
-    let hours: number = 8;
-    let days: number = 5;
 
-    this.estimatedAmount = hours * days * jobType.hourlyRate;
+    this.estimatedAmount = jobType.hourlyRate; 
 
     console.log(this.estimatedAmount);
   }
@@ -48,6 +47,9 @@ export class CreateJobComponent {
   }
 
   uploadImage(): void {
+    if (!this.file) {
+      return;
+    }
     const storageRef = ref(this.storage, this.file.name);
     const uploadTask = uploadBytesResumable(storageRef, this.file);
     uploadTask.on('state_changed',
@@ -59,13 +61,19 @@ export class CreateJobComponent {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log('File available at', downloadURL);
-          this.pictureUrl = downloadURL
+          this.showPreviewImage = true;
+          this.pictureUrl = downloadURL;
         });
       }
     );
   } 
   
   createJobRequest(): void {
+    // TODO error handling 
+    // if (this.file === 0) {
+    //   alert("Please make sure you fill out all the details");
+    //   return;
+    // }
     this.linkService.getImageByLink(this.pictureUrl)
       .subscribe(link => console.log(link));
   }
