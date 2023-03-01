@@ -1,4 +1,5 @@
-﻿using All4SA.Models;
+﻿using All4SA.CRUD;
+using All4SA.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace All4SA.Controllers
@@ -17,6 +18,12 @@ namespace All4SA.Controllers
         public IActionResult GetImageReferenceByID(int imageReferenceID)
         {
             return new ObjectResult("");
+        }
+
+        [HttpGet("GetImageReferenceByLink/{link}", Name = "GetImageReferenceByLink")]
+        public IActionResult GetImageReferenceByLink(string link)
+        {
+            return new ObjectResult(ImagesReferencesCRUD.GetByLink(link));
         }
 
         [HttpPost("AddImageReference", Name = "AddImageReference")]
