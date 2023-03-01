@@ -1,6 +1,7 @@
 ﻿using All4SA.Database;
 using All4SA.Models;
 using Npgsql;
+using System;
 using static All4SA.Database.DatabaseActions;
 
 namespace All4SA.CRUD
@@ -35,8 +36,6 @@ namespace All4SA.CRUD
 
         public static PublicVote GetByJobRequestID(int ID)
         {
-            List<PublicVote> publicVotesView = new List<PublicVote>();
-
             string query = "SELECT * FROM vwpublicvotes WHERE jobrequestid = @id";
 
             using NpgsqlCommand command = new NpgsqlCommand(query, DatabaseConnection.GetConnection());

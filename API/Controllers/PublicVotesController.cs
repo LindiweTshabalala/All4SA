@@ -23,6 +23,8 @@ namespace All4SA.Controllers
         [HttpGet("GetPublicVoteByJobRequestID/{jobRequestID}", Name = "GetPublicVoteByJobRequestID")]
         public IActionResult GetPublicVoteByJobRequestID(int jobRequestID)
         {
+            Console.WriteLine("jobRequestID: " + jobRequestID);
+
             return new ObjectResult(PublicVotesCRUD.GetByJobRequestID(jobRequestID));
         }
 
