@@ -12,6 +12,10 @@ import { JobsComponent } from './components/jobs/jobs.component';
 import { JobDetailComponent } from './components/job-detail/job-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app'
+import { provideStorage, getStorage } from '@angular/fire/storage';
+import { CreateJobComponent } from './components/create-job/create-job.component'
+
 
 @NgModule({
   declarations: [
@@ -19,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavigationComponent,
     AuthButtonComponent,
     JobsComponent,
-    JobDetailComponent
+    JobDetailComponent,
+    CreateJobComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +32,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule, 
     ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp({
+      apiKey: "AIzaSyDzD1QoKGUoGWb_CE0-CedJ8T3JUtSuPFc",
+      authDomain: "all4sa-images.firebaseapp.com",
+      projectId: "all4sa-images",
+      storageBucket: "all4sa-images.appspot.com",
+      messagingSenderId: "754356972480",
+      appId: "1:754356972480:web:b7a060e56d995708457625",
+      measurementId: "G-MSJ6QG2DR7"
+    })),
+    provideStorage(() => getStorage()),
 
     AuthModule.forRoot({
       domain: 'dev-2wnu2oln5iyh7vpe.us.auth0.com',
