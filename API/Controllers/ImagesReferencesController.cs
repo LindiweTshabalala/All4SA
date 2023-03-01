@@ -29,7 +29,7 @@ namespace All4SA.Controllers
         [HttpPost("AddImageReference", Name = "AddImageReference")]
         public IActionResult AddImageReference(ImageReference imageReference)
         {
-            return new ObjectResult("");
+            return new ObjectResult(ImagesReferencesCRUD.InsertEntry(imageReference));
         }
 
         [HttpPut("UpdateImageReference/{imageReferenceID}", Name = "UpdateImageReference")]

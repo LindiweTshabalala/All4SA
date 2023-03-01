@@ -31,10 +31,6 @@ namespace All4SA.CRUD
                                 imageReferenceID = reader.GetInt32(0),
                                 imageReference = reader.GetString(1)
                             };
-                            Console.WriteLine(linkOjbect.imageReferenceID);
-                            Console.WriteLine(linkOjbect.imageReference);
-                            Console.WriteLine("1");
-
 
                             return linkOjbect;
                         }
@@ -48,16 +44,30 @@ namespace All4SA.CRUD
             return linkOjbect;
         }
 
+        public static DatabaseActionsResponses InsertEntry(ImageReference newEntry)
+        {
+            try
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO imageReferences (imageReference) VALUES (@imageReference)", DatabaseConnection.GetConnection()))
+                {   
+                    cmd.Parameters.AddWithValue("imageReference", newEntry.imageReference);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return DatabaseActionsResponses.Failed;
+            }
+            return DatabaseActionsResponses.Success;
+        }
 
         public static new List<ImageReference> GetAll()
         {
             return new List<ImageReference>();
         }
 
-        public static DatabaseActionsResponses InsertEntry(ImageReference newEntry)
-        {
-            return DatabaseActionsResponses.Failed;
-        }
 
         public static DatabaseActionsResponses UpdateEntryByID(ImageReference updateEntry)
         {
