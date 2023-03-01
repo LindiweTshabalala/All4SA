@@ -38,7 +38,25 @@ namespace All4SA.CRUD
 
         public static DatabaseActionsResponses InsertEntry(PublicVote newEntry)
         {
-            return DatabaseActionsResponses.Failed;
+            try
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO PublicVotes (UserID, JobRequestID, UpVotes, DownVotes) VALUES (@UserID, @JobRequestID, @UpVotes, @DownVotes)", DatabaseConnection.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("UserID", newEntry.UserID);
+                    cmd.Parameters.AddWithValue("JobRequestID", newEntry.JobRequestID);
+                    cmd.Parameters.AddWithValue("UpVotes", newEntry.Upvotes);
+                    cmd.Parameters.AddWithValue("DownVotes", newEntry.Downvotes);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    Console.WriteLine("rowsAffected: "+ rowsAffected);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return DatabaseActionsResponses.Failed;
+            }
+            return DatabaseActionsResponses.Success;
         }
 
         public static DatabaseActionsResponses UpdateEntryByID(PublicVote updateEntry)
