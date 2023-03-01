@@ -5,7 +5,7 @@
     <nav>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
-            <li><a routerLink="/create">Create Job</a></li>
+            <li *ngIf="auth.isAuthenticated$ | async "><a routerLink="/create">Create Job</a></li>
             <li><a href="#">about us</a></li>
         </ul>
     </nav>
