@@ -11,6 +11,7 @@ import { AuthButtonComponent } from './components/auth-button/auth-button.compon
 import { JobsComponent } from './components/jobs/jobs.component';
 import { JobDetailComponent } from './components/job-detail/job-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PublicvotesComponent } from './components/publicvotes/publicvotes.component';
 
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app'
 import { provideStorage, getStorage } from '@angular/fire/storage';
@@ -24,6 +25,7 @@ import { CreateJobComponent } from './components/create-job/create-job.component
     AuthButtonComponent,
     JobsComponent,
     JobDetailComponent,
+    PublicvotesComponent
     CreateJobComponent
   ],
   imports: [

@@ -1,0 +1,15 @@
+<app-navigation></app-navigation>
+<article class="content">
+  <h1>Public Votes</h1>
+
+  <section class="publicVotes">
+    <article class="publicVote-container" *ngFor="let publicVote of publicVotes">
+      <p *ngIf="publicVote.publicVoteID">{{publicVote.publicVoteID}}</p>
+      <p *ngIf="publicVote.firstName">{{publicVote.firstName}}</p>
+      <p *ngIf="publicVote.surname">{{publicVote.surname}}</p>
+      <p *ngIf="publicVote.jobRequestID">{{publicVote.jobRequestID}}</p>
+      <p *ngIf="publicVote.upvotes">{{publicVote.upvotes}}</p>
+      <p *ngIf="publicVote.downvotes">{{publicVote.downvotes}}</p>
+    </article>
+  </section>
+</article>
