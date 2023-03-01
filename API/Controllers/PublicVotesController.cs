@@ -21,6 +21,7 @@ namespace All4SA.Controllers
             return new ObjectResult(PublicVotesCRUD.GetByID(publicVoteID));
         }
 
+
         [HttpGet("GetPublicVoteByJobRequestID/{jobRequestID}", Name = "GetPublicVoteByJobRequestID")]
         public IActionResult GetPublicVoteByJobRequestID(int jobRequestID)
         {
@@ -28,6 +29,8 @@ namespace All4SA.Controllers
 
             return new ObjectResult(PublicVotesCRUD.GetByJobRequestID(jobRequestID));
         }
+
+
 
         [HttpPost("AddPublicVote", Name = "AddPublicVote")]
         public IActionResult AddPublicVote(PublicVote publicVote)
@@ -42,34 +45,50 @@ namespace All4SA.Controllers
             }
         }
 
-        [HttpPut("UpdatePublicVote/{publicVoteID}", Name = "UpdatePublicVote")]
-        public IActionResult UpdatePublicVote(PublicVote publicVote)
-        {
-            return new ObjectResult("");
-        }
+
+
+        //[HttpPut("UpdatePublicVote/{publicVoteID}", Name = "UpdatePublicVote")]
+        //public IActionResult UpdatePublicVote(PublicVote publicVote)
+        //{
+        //    return new ObjectResult("");
+        //}
+
+
+
+       
 
         [HttpPut("UpVoteRequest/{publicVoteID}", Name = "UpVoteRequest")]
         public IActionResult UpVoteRequest(int publicVoteID)
         {
-            return new ObjectResult("");
+            PublicVote publicVote = new PublicVote();
+            publicVote.PublicVoteID = publicVoteID;
+            return new ObjectResult(PublicVotesCRUD.UpdateEntryByID_upvote(publicVote));
         }
 
-        [HttpPut("DownVoteRequest/{publicVoteID}", Name = "DownVoteRequest")]
-        public IActionResult DownVoteRequest(int publicVoteID)
-        {
-            return new ObjectResult("");
-        }
 
-        [HttpPut("SoftDeletePublicVote/{publicVoteID}", Name = "SoftDeletePublicVote")]
-        public IActionResult SoftDeletePublicVote(int publicVoteID)
-        {
-            return new ObjectResult("");
-        }
 
-        [HttpDelete("DeletePublicVote/{publicVoteID}", Name = "DeletePublicVote")]
-        public IActionResult DeletePublicVote(int publicVoteID)
-        {
-            return new ObjectResult("");
-        }
+
+
+
+        //[HttpPut("DownVoteRequest/{publicVoteID}", Name = "DownVoteRequest")]
+        //public IActionResult DownVoteRequest(int publicVoteID)
+        //{
+        //    return new ObjectResult("");
+        //}
+
+
+
+
+        //[HttpPut("SoftDeletePublicVote/{publicVoteID}", Name = "SoftDeletePublicVote")]
+        //public IActionResult SoftDeletePublicVote(int publicVoteID)
+        //{
+        //    return new ObjectResult("");
+        //}
+
+        //[HttpDelete("DeletePublicVote/{publicVoteID}", Name = "DeletePublicVote")]
+        //public IActionResult DeletePublicVote(int publicVoteID)
+        //{
+        //    return new ObjectResult("");
+        //}
     }
 }
