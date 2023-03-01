@@ -1,7 +1,7 @@
 <app-navigation></app-navigation>
 <article *ngIf="job" class="container">
     <section>
-        <article class="details-container ">
+        <article class="details-container">
             <section class="image-container inner">
                 <img src="{{job.imageReference}}" alt="">
             </section>
@@ -22,8 +22,6 @@
 
             <form class="donation-form inner">
                 <p> <b> Donations for the job </b></p> <br><br>
-
-                <input type="number" name="userID" id="userID" value="{{job.userID}}" hidden>
 
                 <input type="number" name="jobRequestID" id="jobRequestID" value="{{job.jobRequestID}}" hidden>
 

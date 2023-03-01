@@ -1,27 +1,32 @@
 <app-navigation></app-navigation>
 
-<article>
+<article class="container">
     <section>
-        <article>
-            <section>
-                <p>Upload Image</p>
+        <article class="details-container">
+            <section class="inner">
+                <p>Upload Image</p><br><br>
 
-                <input type="file" (change)="chooseFile($event)">
-                <button (click)="uploadImage()"> upload</button>
+                <input type="file" (change)="chooseFile($event)"> <br><br>
+
+                <button (click)="uploadImage()"> upload</button> <br><br>
+
+                <img *ngIf="showPreviewImage" src="{{pictureUrl}}" alt="image">
             </section>
 
             <form class="donation-form inner">
-                <p><b>Job Information</b></p> <br><br>
+                <p>Job Information</p> <br><br>
 
-                <label for="Description"></label>
-                <input type="text" placeholder="Please describe what needs to be done"> <br><br>
+                <label for="Description">Job Description</label><br><br>
+                <input class="text" type="text" placeholder="Description" required> <br><br>
 
                 <label for="jobType">Type of work that needs to be done</label><br><br>
                 <select name="jobType" id="jobType" (change)="calculateEstimateAmount()" required>
                     <option *ngFor="let jobType of jobTypes" value="{{jobType.jobTypeName}}">{{jobType.jobTypeName}}</option>
-                </select>
+                </select>   
 
-                <button (click)="createJobRequest()" >Create Job Request</button>
+                <br><br><br><br>
+
+                <button (click)="createJobRequest()" >Create Job Request</button> <br><br>
             </form>
         </article>
     </section>
