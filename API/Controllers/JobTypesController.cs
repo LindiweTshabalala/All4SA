@@ -1,4 +1,5 @@
-﻿using All4SA.Models;
+﻿using All4SA.CRUD;
+using All4SA.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace All4SA.Controllers
@@ -10,7 +11,8 @@ namespace All4SA.Controllers
         [HttpGet(Name = "GetAllJobTypes")]
         public IActionResult GetAllJobTypes()
         {
-            return new ObjectResult("");
+            Console.WriteLine("went in");
+            return new ObjectResult(JobTypesCRUD.GetAll());
         }
 
         [HttpGet("GetJobTypeByID/{jobTypeID}", Name = "GetJobTypeByID")]

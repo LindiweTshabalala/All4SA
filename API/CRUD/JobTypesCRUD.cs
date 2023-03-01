@@ -1,5 +1,6 @@
 ﻿using All4SA.Database;
 using All4SA.Models;
+using Npgsql;
 using static All4SA.Database.DatabaseActions;
 
 namespace All4SA.CRUD
@@ -13,7 +14,32 @@ namespace All4SA.CRUD
 
         public static new List<JobType> GetAll()
         {
-            return new List<JobType>();
+            List<JobType> jobLIst = new List<JobType>();
+            JobType jobType = new();
+            try
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM JobTypes", DatabaseConnection.GetConnection()))
+                {
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            jobType = new JobType
+                            {
+                                jobTypeID = reader.GetInt32(0),
+                                jobTypeName = reader.GetString(1),
+                                hourlyRate = reader.GetDecimal(2),
+                            };
+                            jobLIst.Add(jobType);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return jobLIst; ;
         }
 
         public static DatabaseActionsResponses InsertEntry(JobType newEntry)
