@@ -60,7 +60,6 @@ namespace All4SA.CRUD
 
                 });
             }
-            details.Add(new JobRequestDetails());
             return details;
         }
 
