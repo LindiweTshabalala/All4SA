@@ -2,7 +2,7 @@ export interface Job {
     jobRequestID: number,
     jobRequestDescription: string,
     userID: number,
-    imageReferenceID: number,
+    imageReference: string,
     jobTypeID: number,
     estimatedCost: number,
     status: boolean,

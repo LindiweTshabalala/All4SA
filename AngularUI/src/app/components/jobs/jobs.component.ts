@@ -14,6 +14,6 @@ export class JobsComponent {
 
   ngOnInit() {
     this.jobService.getJobs()
-      .subscribe(jobs => this.jobs = jobs);
+      .subscribe(jobs => {this.jobs = jobs; console.log(this.jobs)});
   }
 }

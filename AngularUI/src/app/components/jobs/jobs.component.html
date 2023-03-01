@@ -9,7 +9,7 @@
 
     <section class="jobs">
         <article class="job-container" *ngFor="let job of jobs">
-            <img src='https://cdn.pixabay.com/photo/2023/02/05/17/25/leaves-7770035_960_720.jpg' alt="image">
+            <img src='{{job.imageReference}}' alt="image">
 
             <section class="job-details">
                 <p *ngIf="job.status" ><b> Approved!!! </b></p>
