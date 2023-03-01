@@ -70,3 +70,35 @@ $$;
 
 call sp_add_user('Done', 'Mashaba', '3505230824520','gldfjdfhdsgfjhdgshfdsagldsf','done@yahoo.com',
 				 '0736256300','North West', 'Porch','Near Me', 1912 );
+
+
+
+
+
+CREATE PROCEDURE spInsertJobRequest (
+   IN jobRequestDescription VARCHAR(50),
+   IN userID INT,
+   IN imageReference VARCHAR(120),
+   IN jobTypeID INT,
+   IN estimatedCost MONEY
+)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+   imageRefID INT;
+BEGIN
+   -- Insert the image reference
+   INSERT INTO ImageReferences (ImageReference)
+   VALUES (imageReference)
+   RETURNING ImageReferenceID INTO imageRefID;
+   
+   -- Insert the job request
+   INSERT INTO JobRequests (JobRequestDescription, UserID, ImageReferenceID, JobTypeID, EstimatedCost)
+   VALUES (jobRequestDescription, userID, imageRefID, jobTypeID, estimatedCost);
+   
+END;
+$$;
+
+
+-- Testing the procedure 
+CALL spInsertJobRequest('something that i need done', 1, 'www.thisistheimagereference.png', 1, cast(450.00 as money));
