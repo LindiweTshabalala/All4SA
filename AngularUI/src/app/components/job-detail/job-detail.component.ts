@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '@auth0/auth0-angular';
 import { Job } from 'src/app/interfaces/job';
 import { JobService } from 'src/app/services/job.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-job-detail',
@@ -16,7 +18,9 @@ export class JobDetailComponent {
 
   constructor (
     public jobService: JobService,
-    private route: ActivatedRoute,
+    public route: ActivatedRoute,
+    public uesrService: UserService,
+    public auth: AuthService
   ) 
   { }
 
@@ -27,12 +31,15 @@ export class JobDetailComponent {
   }
 
   makeDonation(): void {
-    this.userID = Number((<HTMLInputElement>document.getElementById("userID")).value);
-    this.jobRequestID = Number((<HTMLInputElement>document.getElementById("userID")).value);
-    this.amount = Number((<HTMLInputElement>document.getElementById("amount")).value);
+    this.auth.user$
+      .subscribe(authUser => this.uesrService.getUserByToken(authUser?.sub)
+        .subscribe(user => {
+          this.userID = user.userID
 
-    console.log(this.userID);
-    console.log(this.jobRequestID);
-    console.log(this.amount);
+          this.jobRequestID = Number((<HTMLInputElement>document.getElementById("userID")).value);
+          this.amount = Number((<HTMLInputElement>document.getElementById("amount")).value);
+
+
+        }));
   }
 }
