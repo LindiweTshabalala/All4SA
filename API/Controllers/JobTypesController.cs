@@ -11,7 +11,6 @@ namespace All4SA.Controllers
         [HttpGet(Name = "GetAllJobTypes")]
         public IActionResult GetAllJobTypes()
         {
-            Console.WriteLine("went in");
             return new ObjectResult(JobTypesCRUD.GetAll());
         }
 

@@ -39,6 +39,40 @@ namespace All4SA.CRUD
             return user;
         }
 
+        public static new User GetByToken(string token)
+        {
+            User user = new();
+            try
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM Users WHERE token = @token", DatabaseConnection.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("token", token);
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            user = new User
+                            {
+                                userID = reader.GetInt32(0),
+                                firstName = reader.GetString(1),
+                                Surname = reader.GetString(2),
+                                idNumber = reader.GetString(3),
+                                token = reader.GetString(4),
+                                isDeleted = reader.GetBoolean(5),
+                            };
+
+                            return user;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return null;
+        }
+
         public static new List<User> GetAll()
         {
             List<User> userList = new List<User>();
