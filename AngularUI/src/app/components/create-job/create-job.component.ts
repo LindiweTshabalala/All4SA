@@ -47,9 +47,6 @@ export class CreateJobComponent {
   }
 
   uploadImage(): void {
-    if (!this.file) {
-      return;
-    }
     const storageRef = ref(this.storage, this.file.name);
     const uploadTask = uploadBytesResumable(storageRef, this.file);
     uploadTask.on('state_changed',
@@ -69,13 +66,15 @@ export class CreateJobComponent {
   } 
   
   createJobRequest(): void {
-    // TODO error handling 
-    // if (this.file === 0) {
-    //   alert("Please make sure you fill out all the details");
-    //   return;
-    // }
-    this.linkService.getImageByLink(this.pictureUrl)
-      .subscribe(link => console.log(link));
+    this.linkService.createImage({
+      "jobRequestID": 0,
+      "jobRequestDescription": (<HTMLInputElement>document.getElementById("text")).value,
+      "userID": this.userID,
+      "imageReferenceID": this.pictureUrl,
+      "jobTypeID": this.jobTypeID,
+      "estimatedCost": this.estimatedAmount,
+      "status": false
+    })    
   }
   
   ngOnInit () {

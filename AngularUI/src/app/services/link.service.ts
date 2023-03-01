@@ -9,14 +9,29 @@ import { link } from '../interfaces/link';
 })
 export class LinkService {
   url: string = 'https://localhost:7071';
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
 
   constructor(private http: HttpClient) {}
 
   getImageByLink(link: string): Observable<link>{
     return this.http.get<link>(this.url+`/GetImageReferenceByLink/${link}`)
       .pipe(
-        tap((_) => console.log('fetched Image by: '+link)),
+        tap((_) => console.log('fetched Image by: '+link))
       );
+  }
+
+  createImage(data: any): void {
+    fetch(this.url+'/JobRequestDetails/create',{
+      method: "POST",
+      body: JSON.stringify(data),
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(json => console.log(json)) 
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
