@@ -105,10 +105,58 @@ namespace All4SA.CRUD
             return DatabaseActionsResponses.Success;
         }
 
-        public static DatabaseActionsResponses UpdateEntryByID(PublicVote updateEntry)
+
+
+        public static DatabaseActionsResponses UpdateEntryByID_upvote(PublicVote updateEntry)
         {
-            return DatabaseActionsResponses.Failed;
+            try
+            {
+                using (NpgsqlCommand command = new NpgsqlCommand(
+                    "UPDATE publicvotes SET upvotes = (upvotes + 1) WHERE PublicVoteID = @PublicVoteID",
+                    DatabaseConnection.GetConnection()))
+                {
+
+                    command.Parameters.AddWithValue("PublicVoteID", updateEntry.PublicVoteID);
+                    command.Parameters.AddWithValue("upvotes", updateEntry.Upvotes);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return DatabaseActionsResponses.Failed;
+            }
+            return DatabaseActionsResponses.Success;
         }
+
+
+
+        public static DatabaseActionsResponses UpdateEntryByID_downvote(PublicVote updateEntry)
+        {
+            try
+            {
+                using (NpgsqlCommand command = new NpgsqlCommand(
+                    "UPDATE publicvotes SET downvotes = (downvotes + 1) WHERE PublicVoteID = PublicVoteID",
+                    DatabaseConnection.GetConnection()))
+                {
+
+                    command.Parameters.AddWithValue("publicvoteid", updateEntry.PublicVoteID);
+                    command.Parameters.AddWithValue("downvotes", updateEntry.Downvotes);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return DatabaseActionsResponses.Failed;
+            }
+            return DatabaseActionsResponses.Success;
+        }
+
+
+
+
 
         public static new DatabaseActionsResponses DeleteEntryByID(int ID)
         {

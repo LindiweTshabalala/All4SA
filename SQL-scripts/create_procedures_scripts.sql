@@ -1,21 +1,3 @@
-CREATE PROCEDURE add_downvote(IN publicvoteid_ INT)
-LANGUAGE SQL
-AS $$
-UPDATE publicvotes
-SET downvotes = downvotes + 1
-WHERE publicvoteid = publicvoteid_;
-$$;
-
-
-CREATE PROCEDURE add_upvote(IN publicvoteid_ INT)
-LANGUAGE SQL
-AS $$
-UPDATE publicvotes
-SET upvotes = upvotes + 1
-WHERE publicvoteid = publicvoteid_;
-$$;
-
-
 
 CREATE PROCEDURE add_donation_amount(increase_amount MONEY, jobrequestid_ INT)
 LANGUAGE plpgsql
@@ -64,7 +46,7 @@ $$;
 
 
 
-call sp_add_user('Done', 'Mashaba', '3505230824520','gldfjdfhdsgfjhdgshfdsagldsf','done@yahoo.com',
+call sp_add_user_details('Done', 'Mashaba', '3505230824520','gldfjdfhdsgfjhdgshfdsagldsf','done@yahoo.com',
 				 '0736256300','North West', 'Porch','Near Me', 1912 );
 
 
