@@ -15,5 +15,6 @@ export class PublicvotesComponent {
   ngOnInit() {
     this.publicVotesService.getPublicVotes()
       .subscribe(publicVotes => this.publicVotes = publicVotes);
+    console.log(this.publicVotes)
   }
 }

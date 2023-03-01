@@ -4,12 +4,12 @@
 
   <section class="publicVotes">
     <article class="publicVote-container" *ngFor="let publicVote of publicVotes">
-      <p *ngIf="publicVote.publicVoteID">publicVoteID</p>
-      <p *ngIf="publicVote.firstName">firstName</p>
-      <p *ngIf="publicVote.surname">surname</p>
-      <p *ngIf="publicVote.jobRequestID">jobRequestID</p>
-      <p *ngIf="publicVote.upvotes">upvotes</p>
-      <p *ngIf="publicVote.downvotes">downvotes</p>
+      <p *ngIf="publicVote.publicVoteID">{{publicVote.publicVoteID}}</p>
+      <p *ngIf="publicVote.firstName">{{publicVote.firstName}}</p>
+      <p *ngIf="publicVote.surname">{{publicVote.surname}}</p>
+      <p *ngIf="publicVote.jobRequestID">{{publicVote.jobRequestID}}</p>
+      <p *ngIf="publicVote.upvotes">{{publicVote.upvotes}}</p>
+      <p *ngIf="publicVote.downvotes">{{publicVote.downvotes}}</p>
     </article>
   </section>
 </article>
