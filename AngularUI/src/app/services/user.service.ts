@@ -30,14 +30,21 @@ export class UserService {
     console.log(user)
 
     fetch(this.url+`/Users/AddUser/${user.firstName}/${user.surname}/${user.token}`)
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    .then((response) => response.json())
+    .then((data) => console.log(data));
 
 
-    // return this.http.get<User>(this.url+`/Users`)
-    //   .pipe(
-    //     tap((_) => console.log('Created user'))
-    //   );
+  // return this.http.get<User>(this.url+`/Users`)
+  //   .pipe(
+  //     tap((_) => console.log('Created user'))
+  //   );
+  }
+
+  getUserByToken(sub?: string): Observable<User> {
+    return this.http.get<User>(this.url+`/Users/GetUserByToken/${sub}`)
+    .pipe(
+      tap((_) => console.log('fetched User by token')),
+    );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

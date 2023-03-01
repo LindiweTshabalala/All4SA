@@ -1,0 +1,28 @@
+<app-navigation></app-navigation>
+
+<article>
+    <section>
+        <article>
+            <section>
+                <p>Upload Image</p>
+
+                <input type="file" (change)="chooseFile($event)">
+                <button (click)="uploadImage()"> upload</button>
+            </section>
+
+            <form class="donation-form inner">
+                <p><b>Job Information</b></p> <br><br>
+
+                <label for="Description"></label>
+                <input type="text" placeholder="Please describe what needs to be done"> <br><br>
+
+                <label for="jobType">Type of work that needs to be done</label><br><br>
+                <select name="jobType" id="jobType" (change)="calculateEstimateAmount()" required>
+                    <option *ngFor="let jobType of jobTypes" value="{{jobType.jobTypeName}}">{{jobType.jobTypeName}}</option>
+                </select>
+
+                <button (click)="createJobRequest()" >Create Job Request</button>
+            </form>
+        </article>
+    </section>
+</article>
