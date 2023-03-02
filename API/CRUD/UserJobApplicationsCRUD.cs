@@ -112,12 +112,12 @@ namespace All4SA.CRUD
             try
             {
                 using (NpgsqlCommand command = new NpgsqlCommand(
-                    "UPDATE publicvotes SET upvotes = (upvotes + 1) WHERE PublicVoteID = @PublicVoteID",
+                    "UPDATE publicvotes SET upvotes = (upvotes + 1) WHERE UserID = @UserID and JobRequestID = @JobRequestID",
                     DatabaseConnection.GetConnection()))
                 {
+                    command.Parameters.AddWithValue("UserID", updateEntry.UserID);
+                    command.Parameters.AddWithValue("JobRequestID", updateEntry.JobRequestID);
 
-                    command.Parameters.AddWithValue("PublicVoteID", updateEntry.PublicVoteID);
-                    command.Parameters.AddWithValue("upvotes", updateEntry.Upvotes);
                     command.ExecuteNonQuery();
                 }
             }

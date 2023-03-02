@@ -43,7 +43,6 @@ export class JobrequestApplyComponent {
           token: authUser?.sub,
           isDeleted: false
         }
-        console.log("JOB APPLICATION")
       });
   }
 

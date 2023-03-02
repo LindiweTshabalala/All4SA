@@ -47,6 +47,13 @@ export class UserService {
     );
   }
 
+  getUserID(firstname?: string, surname?: string): Observable<number> {
+    return this.http.get<number>(this.url + `/Users/GetUserID/${firstname}/${surname}`)
+      .pipe(
+        tap((_) => console.log('fetched User ID')),
+      );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error); 

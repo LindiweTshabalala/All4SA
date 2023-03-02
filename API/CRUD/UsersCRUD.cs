@@ -39,6 +39,27 @@ namespace All4SA.CRUD
             return user;
         }
 
+        public static int GetUserID(User user)
+        {
+            int result = 0;
+            try
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand("SELECT userid FROM Users WHERE firstname = @firstname and surname = @surname", DatabaseConnection.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("firstname", user.firstName);
+                    cmd.Parameters.AddWithValue("surname", user.Surname);
+
+                    result = (int)cmd.ExecuteScalar();
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return result;
+        }
+
         public static new User GetByToken(string token)
         {
             User user = new();
