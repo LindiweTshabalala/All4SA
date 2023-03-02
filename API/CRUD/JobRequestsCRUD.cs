@@ -40,31 +40,43 @@ namespace All4SA.CRUD
         }
 
 
-        public static new List<JobRequest> GetAll()
+        public static List<JobRequest> GetAll()
         {
             List<JobRequest> requests = new List<JobRequest>();
 
-            string query = "SELECT * FROM JobRequests";
-
-            using NpgsqlCommand command = new NpgsqlCommand(query, DatabaseConnection.GetConnection());
-            using NpgsqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                requests.Add(new JobRequest
-                {
-                    JobRequestID = reader.GetInt32(0),
-                    JobRequestDescription = reader.GetString(1),
-                    UserID = reader.GetInt32(2),
-                    ImageReferenceID = reader.GetInt32(3),
-                    JobTypeID = reader.GetInt32(4),
-                    EstimatedCost = reader.GetDecimal(5),
-                    Status = reader.GetBoolean(6)
+                string query = "SELECT * FROM JobRequests";
 
-            });
+                using (NpgsqlCommand command = new NpgsqlCommand(query, DatabaseConnection.GetConnection()))
+                {
+                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            requests.Add(new JobRequest
+                            {
+                                JobRequestID = reader.GetInt32(0),
+                                JobRequestDescription = reader.GetString(1),
+                                UserID = reader.GetInt32(2),
+                                ImageReferenceID = reader.GetInt32(3),
+                                JobTypeID = reader.GetInt32(4),
+                                EstimatedCost = reader.GetDecimal(5),
+                                Status = reader.GetBoolean(6)
+                            });
+                        }
+                    }
+                }
+                requests.Add(new JobRequest());
             }
-            requests.Add(new JobRequest());
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             return requests;
         }
+
 
 
 

@@ -39,29 +39,42 @@ namespace All4SA.CRUD
             return jobRequestDetails;
         }
 
-        public static new List<JobRequestDetails> GetAll()
+        public static List<JobRequestDetails> GetAll()
         {
             List<JobRequestDetails> details = new List<JobRequestDetails>();
 
-            string query = "SELECT * FROM vwJobRequestDetails";
-
-            using NpgsqlCommand command = new NpgsqlCommand(query, DatabaseConnection.GetConnection());
-            using NpgsqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                details.Add(new JobRequestDetails
-                {
-                    firstName= reader.GetString(0),
-                    jobRequestID = reader.GetInt32(1),
-                    jobRequestDescription= reader.GetString(2),
-                    jobType = reader.GetString(3),
-                    estimatedCost = reader.GetDecimal(4),
-                    imageReference = reader.GetString(5)
+                string query = "SELECT * FROM vwJobRequestDetails";
 
-                });
+                using (NpgsqlCommand command = new NpgsqlCommand(query, DatabaseConnection.GetConnection()))
+                {
+                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            details.Add(new JobRequestDetails
+                            {
+                                firstName = reader.GetString(0),
+                                jobRequestID = reader.GetInt32(1),
+                                jobRequestDescription = reader.GetString(2),
+                                jobType = reader.GetString(3),
+                                estimatedCost = reader.GetDecimal(4),
+                                imageReference = reader.GetString(5)
+                            });
+                        }
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                
+                Console.WriteLine(ex.Message);
+            }
+
             return details;
         }
+
 
         public static DatabaseActionsResponses InsertEntry(ApprovedJobRequest newEntry)
         {

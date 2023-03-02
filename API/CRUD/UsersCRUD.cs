@@ -137,7 +137,6 @@ namespace All4SA.CRUD
                     cmd.Parameters.AddWithValue("surname", newEntry.Surname);
                     cmd.Parameters.AddWithValue("idNumber", newEntry.idNumber);
                     cmd.Parameters.AddWithValue("token", newEntry.token);
-                    //cmd.Parameters.AddWithValue("isDeleted", newEntry.isDeleted ? 0 : 1);
                     cmd.ExecuteNonQuery();
                 }
             }
