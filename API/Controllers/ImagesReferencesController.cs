@@ -8,18 +8,6 @@ namespace All4SA.Controllers
     [Route("ImagesReferences")]
     public class ImagesReferencesController : Controller
     {
-        [HttpGet(Name = "GetAllImagesReferences")]
-        public IActionResult GetAllImagesReferences()
-        {
-            return new ObjectResult("");
-        }
-
-        [HttpGet("GetImageReferenceByID/{imageReferenceID}", Name = "GetImageReferenceByID")]
-        public IActionResult GetImageReferenceByID(int imageReferenceID)
-        {
-            return new ObjectResult("");
-        }
-
         [HttpGet("GetImageReferenceByLink/{link}", Name = "GetImageReferenceByLink")]
         public IActionResult GetImageReferenceByLink(string link)
         {
@@ -30,24 +18,6 @@ namespace All4SA.Controllers
         public IActionResult AddImageReference(ImageReference imageReference)
         {
             return new ObjectResult(ImagesReferencesCRUD.InsertEntry(imageReference));
-        }
-
-        [HttpPut("UpdateImageReference/{imageReferenceID}", Name = "UpdateImageReference")]
-        public IActionResult UpdateImageReference(ImageReference imageReference)
-        {
-            return new ObjectResult("");
-        }
-
-        [HttpPut("SoftDeleteImageReference/{imageReferenceID}", Name = "SoftDeleteImageReference")]
-        public IActionResult SoftDeleteImageReference(int imageReferenceID)
-        {
-            return new ObjectResult("");
-        }
-
-        [HttpDelete("DeleteImageReference/{imageReferenceID}", Name = "DeleteImageReference")]
-        public IActionResult DeleteImageReference(int imageReferenceID)
-        {
-            return new ObjectResult("");
         }
     }
 }
