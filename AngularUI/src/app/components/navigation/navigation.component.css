@@ -1,21 +1,29 @@
 :root{
-    --main-color:#ff5823;
+    --main-color: #0088a9;
     --accent-color:#14192E;
     --background :#F0EEED;
+    --navbar :#cbc7c5;
 }
 
 li, a, button {
     font-size: 16px;
-    color: aliceblue;
+    /* color: aliceblue; */
+    color: var(--accent-color);
     text-decoration: none;
 }
+
+li:hover {
+    background-color: var(--main-color);
+}
+
+
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 10%;
-    background-color: #1f2024;
+    background-color: var(--navbar);
 }
 
 .logo {
@@ -27,28 +35,39 @@ header {
     list-style: none;
 }
 
-.nav-links li {
+.nav-links li{
     display: inline-block;
-    padding: 0px 20px;
+    padding: 20px 20px;
+    
 }
+
+.nav-links li:hover a {
+    color: var(--main-color);
+    /* border: 10px solid #0088a9; */
+    background-color: #0088a9;
+    padding: 10px;
+    border-radius: 5px;
+    
+}
+
 
 .nav-links li a {
     transition: all 1s ease 0s;
 }
 
-.nav-links li a:hover {
+/* .nav-links li a:hover {
     color: #0088a9
-}
+} */
 
 button {
     padding: 10px 25px;
-    background-color: rgba(0, 136, 160, 1);
+    background-color:var(--main-color);
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    transition: all 0.4s ease 0s;
+    /* transition: all 0.01s ease 0s; */
 }
 
-button:hover {
-    background-color: rgba(0, 136, 160, 0.1);
-}
+/* button:hover {
+    background-color: var(--main-color);
+} */
