@@ -74,35 +74,75 @@ a {
 }
 
 
-/* for screens with width less than or equal to 480px */
+
 @media only screen and (max-width: 480px) {
-    .jobs {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto;
-    }
+  .jobs {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
-  
-  /* for screens with width greater than 480px and less than or equal to 768px */
-  @media only screen and (min-width: 481px) and (max-width: 768px) {
-    .jobs {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto;
-    }
+  img {
+    height: 60%;
   }
-  
-  /* for screens with width greater than 768px and less than or equal to 1024px */
-  @media only screen and (min-width: 769px) and (max-width: 1024px) {
-    .jobs {
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: auto;
-    }
+  .job-details {
+    
+    height: 40%;
+   
+}
+
+  .job-details p {
+    font-size: 12px;
   }
-  
-  /* for screens with width greater than 1024px */
-  @media only screen and (min-width: 1025px) {
-    .jobs {
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: auto;
-    }
+}
+
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .jobs {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
   }
+  img {
+    height: 65%;
+  }
+  .job-details {
+    height: 35%;
+    
+}
+
+  .job-details p {
+    font-size: 14px;
+  }
+}
+
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .jobs {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  img {
+    height: 65%;
+  }
+  .job-details {
+    height: 35%;
   
+}
+
+ 
+}
+
+
+@media only screen and (min-width: 1025px) {
+  .jobs {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  img {
+    height: 70%;
+  }
+  .job-details {
+
+    height: 30%;
+}
+
+ 
+}
