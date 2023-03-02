@@ -5,6 +5,7 @@ import { JobDetailComponent } from './components/job-detail/job-detail.component
 import { JobsComponent } from './components/jobs/jobs.component';
 import { PublicvotesComponent } from './components/publicvotes/publicvotes.component';
 import { JobrequestApplyComponent } from './components/jobrequest-apply/jobrequest-apply.component';
+import { AboutUsComponent  } from './components/about-us/about-us.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'publicvotes', component: PublicvotesComponent },
   { path: 'jobs', component: JobsComponent},
   { path: 'create', component: CreateJobComponent },
-  { path: 'applyjobrequest/:id', component: JobrequestApplyComponent }
+  { path: 'applyjobrequest/:id', component: JobrequestApplyComponent },
+  { path: 'about-us', component: AboutUsComponent }
 ];
 
 @NgModule({
