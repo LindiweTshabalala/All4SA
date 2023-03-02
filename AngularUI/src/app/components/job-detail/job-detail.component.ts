@@ -32,14 +32,8 @@ export class JobDetailComponent {
 
   makeDonation(): void {
     this.auth.user$
-      .subscribe(authUser => this.uesrService.getUserByToken(authUser?.sub)
-        .subscribe(user => {
-          this.userID = user.userID
-
-          this.jobRequestID = Number((<HTMLInputElement>document.getElementById("userID")).value);
-          this.amount = Number((<HTMLInputElement>document.getElementById("amount")).value);
-
-
-        }));
+      .subscribe(authUser => {
+        alert("Thank you " + authUser?.name + " for your donation");
+      });                                                                                                            
   }
 }
