@@ -62,9 +62,9 @@ namespace All4SA.CRUD
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                //return DatabaseActionsResponses.Failed;
+           
             }
-            //return DatabaseActionsResponses.Success;
+          
             return -1;
         }
 

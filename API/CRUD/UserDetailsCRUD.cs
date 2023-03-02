@@ -39,10 +39,6 @@ namespace All4SA.CRUD
                     tran.Rollback();
                     throw ex;
                 }
-                //finally
-                //{
-                //    tran.Dispose();
-                //}
             }
         }
 

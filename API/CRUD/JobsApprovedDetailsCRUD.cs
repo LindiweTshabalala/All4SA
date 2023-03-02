@@ -6,33 +6,38 @@ namespace All4SA.CRUD
 {
     public class JobsApprovedDetailsCRUD : DatabaseActionsBridge
     {
-
-
-        public static new List<JobsApprovedDetails> GetAll()
+        public static List<JobsApprovedDetails> GetAll()
         {
             List<JobsApprovedDetails> details = new List<JobsApprovedDetails>();
 
-            string query = "SELECT * FROM vwApprovedJobDetails";
-
-            using NpgsqlCommand command = new NpgsqlCommand(query, DatabaseConnection.GetConnection());
-            using NpgsqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                details.Add(new JobsApprovedDetails
-                {
-                    approvedjobid = reader.GetInt32(0),
-                    jobrequestdescription = reader.GetString(1),
-                    jobtypename = reader.GetString(2),
-                    statusname = reader.GetString(3)
-                   
+                string query = "SELECT * FROM vwApprovedJobDetails";
 
-                });
+                using (NpgsqlCommand command = new NpgsqlCommand(query, DatabaseConnection.GetConnection()))
+                {
+                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            details.Add(new JobsApprovedDetails
+                            {
+                                approvedjobid = reader.GetInt32(0),
+                                jobrequestdescription = reader.GetString(1),
+                                jobtypename = reader.GetString(2),
+                                statusname = reader.GetString(3)
+                            });
+                        }
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             return details;
         }
-
-
-
 
     }
 }
