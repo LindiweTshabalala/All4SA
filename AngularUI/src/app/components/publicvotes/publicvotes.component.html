@@ -8,6 +8,8 @@
       <th>Job Request ID</th>
       <th>Upvotes</th>
       <th>Downvotes</th>
+      <th>Upvote User</th>
+      <th>Downvote User</th>
     </tr>
     <tr class="publicVote-container" *ngFor="let publicVote of publicVotes">
       <td>{{publicVote.firstName}}</td>
@@ -17,6 +19,12 @@
        </td>
       <td>{{publicVote.upvotes}}</td>
       <td>{{publicVote.downvotes}}</td>
+      <td>
+          <button>Upvote</button>
+      </td>
+      <td>
+          <button>Downvote</button>
+      </td>
     </tr>
   </table>
 </article>
