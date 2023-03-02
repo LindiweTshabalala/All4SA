@@ -40,15 +40,23 @@ namespace All4SA.Controllers
         [HttpPut("UpvoteByUserID/{jobRequestID}/{userID}", Name = "UpvoteByUserID")]
         public IActionResult UpvoteByUserID(int jobRequestID, int userID)
         {
-            Console.WriteLine("jobRequestID: "+ jobRequestID);
-            Console.WriteLine("userID: " + userID);
-
             PublicVote publicVote = new PublicVote
             {
                 UserID=userID,
                 JobRequestID= jobRequestID,
             };
             return new ObjectResult(UserJobApplicationsCRUD.UpdateEntryByID_upvote(publicVote));
+        }
+
+        [HttpPut("DownvoteByUserID/{jobRequestID}/{userID}", Name = "DownvoteByUserID")]
+        public IActionResult DownvoteByUserID(int jobRequestID, int userID)
+        {
+            PublicVote publicVote = new PublicVote
+            {
+                UserID = userID,
+                JobRequestID = jobRequestID,
+            };
+            return new ObjectResult(UserJobApplicationsCRUD.UpdateEntryByID_downvote(publicVote));
         }
     }
 }
