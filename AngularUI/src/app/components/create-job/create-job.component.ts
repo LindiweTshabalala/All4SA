@@ -66,15 +66,17 @@ export class CreateJobComponent {
   } 
   
   createJobRequest(): void {
-    this.linkService.createImage({
-      "jobRequestID": 0,
-      "jobRequestDescription": (<HTMLInputElement>document.getElementById("text")).value,
-      "userID": this.userID,
-      "imageReferenceID": this.pictureUrl,
-      "jobTypeID": this.jobTypeID,
-      "estimatedCost": this.estimatedAmount,
-      "status": false
-    })    
+    if (this.pictureUrl !== "" ){
+      this.linkService.createImage({
+        "jobRequestID": 0,
+        "jobRequestDescription": (<HTMLInputElement>document.getElementById("text")).value,
+        "userID": this.userID,
+        "imageReferenceID": this.pictureUrl,
+        "jobTypeID": this.jobTypeID,
+        "estimatedCost": this.estimatedAmount,
+        "status": false
+      })    
+    }
   }
   
   ngOnInit () {
