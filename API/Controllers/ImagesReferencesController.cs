@@ -11,13 +11,28 @@ namespace All4SA.Controllers
         [HttpGet("GetImageReferenceByLink/{link}", Name = "GetImageReferenceByLink")]
         public IActionResult GetImageReferenceByLink(string link)
         {
-            return new ObjectResult(ImagesReferencesCRUD.GetByLink(link));
+            try
+            {
+                return new ObjectResult(ImagesReferencesCRUD.GetByLink(link));
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
+
 
         [HttpPost("AddImageReference", Name = "AddImageReference")]
         public IActionResult AddImageReference(ImageReference imageReference)
         {
-            return new ObjectResult(ImagesReferencesCRUD.InsertEntry(imageReference));
+            try
+            {
+                return new ObjectResult(ImagesReferencesCRUD.InsertEntry(imageReference));
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }
