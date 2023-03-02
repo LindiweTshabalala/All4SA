@@ -49,4 +49,23 @@ export class PublicvotesComponent {
     
     this.router.navigate([''], { replaceUrl: true });
   }
+
+  async downVoteUser(publicVote: PublicVote) {
+    //await this.userService.getUserByToken(this.user.token).toPromise()
+    //  .then(result => this.user = result as User)
+    let requestingUserID = 0;
+    console.log("jobRequestID: " + publicVote.jobRequestID)
+    console.log("name: " + publicVote.firstName)
+    console.log("surname: " + publicVote.surname)
+
+    this.userService.getUserID(publicVote.firstName, publicVote.surname).subscribe(
+      userID => {
+        requestingUserID = userID;
+        console.log("requestingUserID: " + requestingUserID)
+        this.publicVotesService.downVote(publicVote.jobRequestID, requestingUserID)
+      }
+    )
+
+    this.router.navigate([''], { replaceUrl: true });
+  }
 }

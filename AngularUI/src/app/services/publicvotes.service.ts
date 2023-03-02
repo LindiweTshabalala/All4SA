@@ -42,6 +42,24 @@ export class PublicvotesService {
       .catch(error => console.error("error: " + error));
   }
 
+  downVote(jobRequestID: number, userID: number) {
+    fetch(this.url + `/UserJobApplication/DownvoteByUserID/${jobRequestID}/${userID}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        console.log("Upvoted User With ID " + userID)
+        return response.json();
+      })
+      .then(data => { console.log("dataResponse:"); console.log(data) })
+      .catch(error => console.error("error: " + error));
+  }
+
   addToPublicVotes(user_ID: number, jobRequestID: number): void {
     let data = {
       userID: user_ID
