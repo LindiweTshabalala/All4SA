@@ -2,7 +2,7 @@
     <img class="logo" src="https://cdn.pixabay.com/photo/2016/12/07/15/15/lotus-with-hands-1889661_960_720.png"
         alt="logo" />
 
-    <nav>
+    <nav style="background-color: #14192E;">
       <ul class="nav-links">
         <li><a href="#">Home</a></li>
         <li *ngIf="auth.isAuthenticated$ | async "><a routerLink="/create">Create Job</a></li>
