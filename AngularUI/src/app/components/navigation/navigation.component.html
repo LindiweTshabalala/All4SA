@@ -7,7 +7,7 @@
         <li><a href="#">Home</a></li>
         <li *ngIf="auth.isAuthenticated$ | async "><a routerLink="/create">Create Job</a></li>
         <li *ngIf="auth.isAuthenticated$ | async "><a routerLink="/publicvotes">Vote</a></li>
-        <li><a href="#">about us</a></li>
+        <li ><a routerLink="/about-us"> About us</a></li>
       </ul>
     </nav>
 

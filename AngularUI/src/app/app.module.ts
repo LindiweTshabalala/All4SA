@@ -12,6 +12,7 @@ import { JobsComponent } from './components/jobs/jobs.component';
 import { JobDetailComponent } from './components/job-detail/job-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PublicvotesComponent } from './components/publicvotes/publicvotes.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app'
 import { provideStorage, getStorage } from '@angular/fire/storage';
@@ -28,7 +29,8 @@ import { JobrequestApplyComponent } from './components/jobrequest-apply/jobreque
     JobDetailComponent,
     PublicvotesComponent,
     CreateJobComponent,
-    JobrequestApplyComponent
+    JobrequestApplyComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
