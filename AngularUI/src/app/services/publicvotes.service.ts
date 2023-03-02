@@ -9,27 +9,18 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class PublicvotesService {
-  url: string = 'https://localhost:7071';
+  url: string = 'https://localhost:7071/UserJobApplication/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
-  //data: PublicVote = {
-  //  publicVoteID: 0,
-  //  userID: 0,
-  //  firstName: '',
-  //  surname: 0,
-  //  jobRequestID: 0,
-  //  upvotes: 0,
-  //  downvotes: 0
-  //};
-
+ 
   constructor(private http: HttpClient) { }
   
   getPublicVotes(): Observable<PublicVote[]> {
     return this.http.get<PublicVote[]>(this.url)
       .pipe(
         tap((_) => console.log('fetched All Public Votes')),
-        catchError(this.handleError<PublicVote[]>('getPublicVotes', []))
+        catchError(this.handleError<PublicVote[]>('GetAllUserJobApplications', []))
       );
   }
 

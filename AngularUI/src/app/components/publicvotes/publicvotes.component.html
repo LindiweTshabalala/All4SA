@@ -1,15 +1,30 @@
 <app-navigation></app-navigation>
-<article class="content">
+<article class="publicVotes" *ngIf="publicVotes">
   <h1>Public Votes</h1>
-
-  <section class="publicVotes">
-    <article class="publicVote-container" *ngFor="let publicVote of publicVotes">
-      <p *ngIf="publicVote.publicVoteID">{{publicVote.publicVoteID}}</p>
-      <p *ngIf="publicVote.firstName">{{publicVote.firstName}}</p>
-      <p *ngIf="publicVote.surname">{{publicVote.surname}}</p>
-      <p *ngIf="publicVote.jobRequestID">{{publicVote.jobRequestID}}</p>
-      <p *ngIf="publicVote.upvotes">{{publicVote.upvotes}}</p>
-      <p *ngIf="publicVote.downvotes">{{publicVote.downvotes}}</p>
-    </article>
-  </section>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Job Request ID</th>
+      <th>Upvotes</th>
+      <th>Downvotes</th>
+      <th>Upvote User</th>
+      <th>Downvote User</th>
+    </tr>
+    <tr class="publicVote-container" *ngFor="let publicVote of publicVotes">
+      <td>{{publicVote.firstName}}</td>
+      <td>{{publicVote.surname}}</td>
+       <td>
+          <a class="publicVote-link" routerLink="/detail/{{publicVote.jobRequestID}}">{{publicVote.jobRequestID}}</a>
+       </td>
+      <td>{{publicVote.upvotes}}</td>
+      <td>{{publicVote.downvotes}}</td>
+      <td>
+          <button>Upvote</button>
+      </td>
+      <td>
+          <button>Downvote</button>
+      </td>
+    </tr>
+  </table>
 </article>

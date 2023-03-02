@@ -1,0 +1,23 @@
+h1 {
+    text-align: center;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 3.5rem;
+  margin: 0 auto;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+td {
+  text-align: center;
+}
+
+th {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.publicVote-link {
+    color:brown;
+}
