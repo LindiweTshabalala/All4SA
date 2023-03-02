@@ -61,23 +61,5 @@ namespace All4SA.Controllers
 
             return new ObjectResult(checkUser);
         }
-
-        [HttpPut("UpdateUser/{userID}", Name = "UpdateUser")]
-        public IActionResult UpdateUser(User user)
-        {
-            return new ObjectResult("");
-        }
-
-        [HttpPut("SoftDeleteUser/{userID}", Name = "SoftDeleteUser")]
-        public IActionResult SoftDeleteUser(int userID)
-        {
-            return new ObjectResult("");
-        }
-
-        [HttpDelete("DeleteUser/{userID}", Name = "DeleteUser")]
-        public IActionResult DeleteUser(int userID)
-        {
-            return new ObjectResult("");
-        }
     }
 }
