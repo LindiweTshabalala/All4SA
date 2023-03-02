@@ -9,18 +9,18 @@
             <section class="info-container inner">
                 <p *ngIf="job.status">Job: Approved!!! </p>
                 <p *ngIf="!job.status">Job: Pending... </p>
-                <p>Estimation for job: R {{job.estimatedCost}}</p>
+                <p>Estimation for job: R {{job.estimatedCost}} / hour</p>
             </section >
 
             <section class="inner">
                 <p>Description: {{job.jobRequestDescription}}</p>
             </section>
 
-            <section>
+            <section *ngIf="auth.isAuthenticated$ | async" >
               <button id="job-apply-button" [routerLink]="['/applyjobrequest', job.jobRequestID]">Apply For This Job</button>
             </section>
 
-            <form class="donation-form inner">
+            <form  *ngIf="auth.isAuthenticated$ | async" class="donation-form inner">
                 <p> <b> Donations for the job </b></p> <br><br>
 
                 <input type="number" name="jobRequestID" id="jobRequestID" value="{{job.jobRequestID}}" hidden>
