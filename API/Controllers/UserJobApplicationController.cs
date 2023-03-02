@@ -50,5 +50,19 @@ namespace All4SA.Controllers
             };
             return new ObjectResult(UserJobApplicationsCRUD.UpdateEntryByID_upvote(publicVote));
         }
+
+        [HttpPut("DownvoteByUserID/{jobRequestID}/{userID}", Name = "DownvoteByUserID")]
+        public IActionResult DownvoteByUserID(int jobRequestID, int userID)
+        {
+            Console.WriteLine("jobRequestID: " + jobRequestID);
+            Console.WriteLine("userID: " + userID);
+
+            PublicVote publicVote = new PublicVote
+            {
+                UserID = userID,
+                JobRequestID = jobRequestID,
+            };
+            return new ObjectResult(UserJobApplicationsCRUD.UpdateEntryByID_downvote(publicVote));
+        }
     }
 }
