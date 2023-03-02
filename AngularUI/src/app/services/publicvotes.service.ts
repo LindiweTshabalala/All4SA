@@ -9,7 +9,7 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class PublicvotesService {
-  url: string = 'https://localhost:7071/UserJobApplication/';
+  url: string = 'https://localhost:7071';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
@@ -17,11 +17,29 @@ export class PublicvotesService {
   constructor(private http: HttpClient) { }
   
   getPublicVotes(): Observable<PublicVote[]> {
-    return this.http.get<PublicVote[]>(this.url)
+    return this.http.get<PublicVote[]>(this.url +"/UserJobApplication")
       .pipe(
         tap((_) => console.log('fetched All Public Votes')),
         catchError(this.handleError<PublicVote[]>('GetAllUserJobApplications', []))
       );
+  }
+
+  upVote(jobRequestID: number, userID: number) {
+    fetch(this.url + `/UserJobApplication/UpvoteByUserID/${jobRequestID}/${userID}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        console.log("Upvoted User With ID " + userID)
+        return response.json();
+      })
+      .then(data => { console.log("dataResponse:"); console.log(data) })
+      .catch(error => console.error("error: " + error));
   }
 
   addToPublicVotes(user_ID: number, jobRequestID: number): void {

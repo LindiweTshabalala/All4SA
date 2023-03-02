@@ -26,6 +26,17 @@ namespace All4SA.Controllers
             return new ObjectResult(UsersCRUD.GetByToken(token));
         }
 
+        [HttpGet("GetUserID/{firstname}/{surname}", Name = "GetUserID")]
+        public IActionResult GetUserID(string firstname, string surname)
+        {
+            User user = new User
+            {
+                firstName= firstname,
+                Surname= surname,
+            };
+            return new ObjectResult(UsersCRUD.GetUserID(user));
+        }
+
         [HttpGet("AddUser/{name}/{surname}/{token}", Name = "AddUser")]
         public IActionResult AddUser( string name, string surname, string token )
         {
