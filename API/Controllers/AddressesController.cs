@@ -15,35 +15,35 @@ namespace All4SA.Controllers
         }
 
 
-        [HttpGet("GetAddressByID/{addressID}", Name = "GetAddressByID")]
-        public IActionResult GetAddressByID(int addressID)
-        {
-            return new ObjectResult("");
-        }
+        //[HttpGet("GetAddressByID/{addressID}", Name = "GetAddressByID")]
+        //public IActionResult GetAddressByID(int addressID)
+        //{
+        //    return new ObjectResult("");
+        //}
 
-        [HttpPost("AddAddress", Name = "AddAddress")]
-        public IActionResult AddAddress(Address address)
-        {
+        //[HttpPost("AddAddress", Name = "AddAddress")]
+        //public IActionResult AddAddress(Address address)
+        //{
 
-            return new ObjectResult("");
-        }
+        //    return new ObjectResult("");
+        //}
 
-        [HttpPut("UpdateAddress/{addressID}", Name = "UpdateAddress")]
-        public IActionResult UpdateAddress(Address address)
-        {
-            return new ObjectResult("");
-        }
+        //[HttpPut("UpdateAddress/{addressID}", Name = "UpdateAddress")]
+        //public IActionResult UpdateAddress(Address address)
+        //{
+        //    return new ObjectResult("");
+        //}
 
-        [HttpPut("SoftDeleteAddress/{addressID}", Name = "SoftDeleteAddress")]
-        public IActionResult SoftDeleteAddress(int addressID)
-        {
-            return new ObjectResult("");
-        }
+        //[HttpPut("SoftDeleteAddress/{addressID}", Name = "SoftDeleteAddress")]
+        //public IActionResult SoftDeleteAddress(int addressID)
+        //{
+        //    return new ObjectResult("");
+        //}
 
-        [HttpDelete("DeleteAddress/{addressID}", Name = "DeleteAddress")]
-        public IActionResult DeleteAddress(int addressID)
-        {
-            return new ObjectResult("");
-        }
+        //[HttpDelete("DeleteAddress/{addressID}", Name = "DeleteAddress")]
+        //public IActionResult DeleteAddress(int addressID)
+        //{
+        //    return new ObjectResult("");
+        //}
     }
 }
