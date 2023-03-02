@@ -1,4 +1,5 @@
 <app-navigation></app-navigation>
+<hr>
 <article *ngIf="job" class="container">
     <section>
         <article class="details-container">
@@ -11,15 +12,15 @@
                 <p *ngIf="!job.status">Job: Pending... </p>
                 <p>Estimation for job: R {{job.estimatedCost}} / hour</p>
             </section >
-
+            <hr>
             <section class="inner">
                 <p>Description: {{job.jobRequestDescription}}</p>
             </section>
-
-            <section *ngIf="auth.isAuthenticated$ | async" >
+            <hr>
+            <section class="inner" *ngIf="auth.isAuthenticated$ | async" >
               <button id="job-apply-button" [routerLink]="['/applyjobrequest', job.jobRequestID]">Apply For This Job</button>
             </section>
-
+            <hr>
             <form  *ngIf="auth.isAuthenticated$ | async" class="donation-form inner">
                 <p> <b> Donations for the job </b></p> <br><br>
 
