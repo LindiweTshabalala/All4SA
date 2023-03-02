@@ -11,7 +11,14 @@ namespace All4SA.Controllers
         [HttpGet(Name = "GetAllJobTypes")]
         public IActionResult GetAllJobTypes()
         {
-            return new ObjectResult(JobTypesCRUD.GetAll());
+            try
+            {
+                return new ObjectResult(JobTypesCRUD.GetAll());
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }

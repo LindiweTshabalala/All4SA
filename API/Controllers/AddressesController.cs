@@ -11,7 +11,15 @@ namespace All4SA.Controllers
         [HttpGet(Name = "GetAllAddresses")]
         public IActionResult GetAllAddresses()
         {
-            return new ObjectResult(AddressesCRUD.GetAll());
+            try 
+            {
+                return new ObjectResult(AddressesCRUD.GetAll());
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }
+

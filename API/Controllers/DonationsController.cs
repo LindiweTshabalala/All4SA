@@ -11,10 +11,17 @@ namespace All4SA.Controllers
         [HttpPut("UpdateDonation/{jobRequestID}/{amount}", Name = "UpdateDonation")]
         public IActionResult UpdateDonation(int jobRequestID, decimal amount)
         {
-            Donation donation = new Donation();
-            donation.Amount = amount;
-            donation.JobRequestID = jobRequestID;
-            return new ObjectResult(DonationsCRUD.UpdateEntryByID(donation));
+            try
+            {
+                Donation donation = new Donation();
+                donation.Amount = amount;
+                donation.JobRequestID = jobRequestID;
+                return new ObjectResult(DonationsCRUD.UpdateEntryByID(donation));
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }

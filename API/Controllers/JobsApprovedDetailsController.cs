@@ -7,22 +7,21 @@ namespace All4SA.Controllers
 
     [ApiController]
     [Route("JobsApprovedDetails")]
-    public class JobsApprovedDetailsController
+    public class JobsApprovedDetailsController: Controller
     {
 
 
         [HttpGet(Name = "GetAllJobsApprovedDetailsCRUD")]
         public IActionResult GetAllJobsApprovedDetails()
         {
-            return new ObjectResult(JobsApprovedDetailsCRUD.GetAll());
+            try
+            {
+                return new ObjectResult(JobsApprovedDetailsCRUD.GetAll());
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
-
-
-
-        //[HttpGet("GetJobRequestDetailsByID/{jobRequestID}", Name = "GetJobRequestDetailsByID")]
-        //public IActionResult GetJobRequestDetailsByID(int jobRequestID)
-        //{
-        //    return new ObjectResult(JobRequestDetailsCRUD.GetByID(jobRequestID));
-        //}
     }
 }

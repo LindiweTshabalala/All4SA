@@ -18,23 +18,37 @@ namespace All4SA.Controllers
         [HttpGet("GetJobRequestByID/{jobRequestID}", Name = "GetJobRequestByID")]
         public IActionResult GetJobRequestByID(int jobRequestID)
         {
-            JobRequest? job = JobRequestsCRUD.GetByID(jobRequestID);
-
-            ObjectResult objectResult = new ObjectResult(job);
-
-            if (job == null)
+            try
             {
-                objectResult.StatusCode = 404;
+                JobRequest? job = JobRequestsCRUD.GetByID(jobRequestID);
+
+                ObjectResult objectResult = new ObjectResult(job);
+
+                if (job == null)
+                {
+                    objectResult.StatusCode = 404;
+                    return objectResult;
+                }
                 return objectResult;
             }
-            return objectResult;
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
 
         [HttpPost("AddJobRequest", Name = "AddJobRequest")]
         public IActionResult AddJobRequest(JobRequest jobRequest)
         {
-            return new ObjectResult(JobRequestsCRUD.InsertEntry(jobRequest));
+            try
+            {
+                return new ObjectResult(JobRequestsCRUD.InsertEntry(jobRequest));
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }

@@ -13,7 +13,14 @@ namespace All4SA.Controllers
         [HttpGet(Name = "GetAllUserJobApplications")]
         public IActionResult GetAllUserJobApplications()
         {
-            return new ObjectResult(UserJobApplicationsCRUD.GetAll());
+            try
+            {
+                return new ObjectResult(UserJobApplicationsCRUD.GetAll());
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpPost("AddUserJobApplication/{jobRequestID}/{userID}", Name = "AddUserJobApplication")]
@@ -40,23 +47,37 @@ namespace All4SA.Controllers
         [HttpPut("UpvoteByUserID/{jobRequestID}/{userID}", Name = "UpvoteByUserID")]
         public IActionResult UpvoteByUserID(int jobRequestID, int userID)
         {
-            PublicVote publicVote = new PublicVote
+            try
             {
-                UserID=userID,
-                JobRequestID= jobRequestID,
-            };
-            return new ObjectResult(UserJobApplicationsCRUD.UpdateEntryByID_upvote(publicVote));
+                PublicVote publicVote = new PublicVote
+                {
+                    UserID = userID,
+                    JobRequestID = jobRequestID,
+                };
+                return new ObjectResult(UserJobApplicationsCRUD.UpdateEntryByID_upvote(publicVote));
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpPut("DownvoteByUserID/{jobRequestID}/{userID}", Name = "DownvoteByUserID")]
         public IActionResult DownvoteByUserID(int jobRequestID, int userID)
         {
-            PublicVote publicVote = new PublicVote
+            try
             {
-                UserID = userID,
-                JobRequestID = jobRequestID,
-            };
-            return new ObjectResult(UserJobApplicationsCRUD.UpdateEntryByID_downvote(publicVote));
+                PublicVote publicVote = new PublicVote
+                {
+                    UserID = userID,
+                    JobRequestID = jobRequestID,
+                };
+                return new ObjectResult(UserJobApplicationsCRUD.UpdateEntryByID_downvote(publicVote));
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }
